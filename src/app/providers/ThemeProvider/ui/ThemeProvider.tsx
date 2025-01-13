@@ -24,6 +24,9 @@ const ThemeProvider: React.FC<IThemeProviderProps> = ({ children }) => {
     [theme]
   );
 
+  //Provider
+  //Компонент Provider используется для предоставления контекста всем дочерним компонентам. Все компоненты внутри Provider могут получить доступ кзначениям, переданным value.
+
   return (
     <ThemeContext.Provider value={defaultProps}>
       {children}
