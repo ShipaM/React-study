@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import { routeConfig } from "shared/config/routerConfig/routeConfig";
 
 const AppRouter = () => {
-  console.log(Object.values(routeConfig));
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
