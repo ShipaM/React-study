@@ -2,10 +2,12 @@ import { AboutAsyncPage } from "pages/About/ui/About.async";
 import { MainAsyncPage } from "pages/Main/ui/Main.async";
 import { RouteProps } from "react-router-dom";
 import React from "react";
+import { NotFound } from "pages/NotFound";
 
 export enum AppRoutes {
   MAIN = "main",
   ABOUT = "about",
+  NOT_FOUND = "not-found",
 }
 
 //Record<T, U>
@@ -14,6 +16,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.ABOUT]: "/about",
+  [AppRoutes.NOT_FOUND]: "*",
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
@@ -24,5 +27,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,
     element: <AboutAsyncPage />,
+  },
+  [AppRoutes.NOT_FOUND]: {
+    path: RoutePath["not-found"],
+    element: <NotFound />,
   },
 };
