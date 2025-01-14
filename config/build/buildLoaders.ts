@@ -8,6 +8,26 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     use: ["@svgr/webpack"],
   };
 
+  const babelLoader = {
+    test: /\.(js|ts|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+        plugins: [
+          [
+            "i18next-extract",
+            {
+              locales: ["ru", "en"], // Define supported locales
+              keyAsDefaultValue: true, // Use key as default value
+            },
+          ],
+        ],
+      },
+    },
+  };
+
   const cssLoader = {
     test: /\.css$/i, // Все файлы с расширением .css,
     use: [
@@ -62,5 +82,12 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [fileLoader, svgLoader, typescriptLoader, cssLoader, sassLoader];
+  return [
+    fileLoader,
+    svgLoader,
+    babelLoader,
+    typescriptLoader,
+    cssLoader,
+    sassLoader,
+  ];
 }
