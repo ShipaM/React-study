@@ -1,6 +1,7 @@
 import { AboutAsyncPage } from "pages/About/ui/About.async";
 import { MainAsyncPage } from "pages/Main/ui/Main.async";
 import { RouteProps } from "react-router-dom";
+import React from "react";
 
 export enum AppRoutes {
   MAIN = "main",

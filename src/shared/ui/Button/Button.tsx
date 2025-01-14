@@ -3,9 +3,9 @@ import React, { ButtonHTMLAttributes } from "react";
 import "./Button.css";
 
 export enum ButtonSize {
-  M = "size_m",
-  L = "size_l",
-  XL = "size_xl",
+  M = "size-m",
+  L = "size-l",
+  XL = "size-xl",
 }
 
 export enum ButtonTheme {

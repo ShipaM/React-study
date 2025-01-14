@@ -1,1 +1,1 @@
-import { MainAsyncPage } from "./ui/Main.async";
+export { MainAsyncPage } from "./ui/Main.async";

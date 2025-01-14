@@ -1,1 +1,1 @@
-import { AboutAsyncPage } from "./ui/About.async";
+export { AboutAsyncPage } from "./ui/About.async";

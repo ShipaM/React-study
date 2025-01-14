@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import "./Navbar.css";
 import { AppLink } from "shared/ui/AppLink/AppLink";
@@ -9,7 +9,7 @@ interface INavbaProps {
   className?: string;
 }
 
-export const Navbar: FC<INavbaProps> = ({ className }) => {
+export const Navbar: React.FC<INavbaProps> = ({ className }) => {
   const { t } = useTranslation();
   return (
     <div className={classNames("navbar", {}, [className])}>
