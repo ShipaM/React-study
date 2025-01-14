@@ -1,0 +1,17 @@
+{
+  "TEST_EXAMPLE": "Test example",
+  "TRANSLATION": "Translate",
+  "MAIN_PAGE": "Main page",
+  "LANGUAGE": "English",
+  "SHORT_LANGUAGE": "En",
+  "PAGE_NOT_FOUND": "Page not found",
+  "NAV_ABOUT_LINK": "About",
+  "NAV_MAIN_LINK": "Main",
+  "AN_UNEXPECTED_ERROR": "An unexpected error occurred",
+  "RELOAD_PAGE": "Reload page",
+  "THROW_ERROR": "Error",
+  "LOGIN": "Login",
+  "ENTER_USERNAME": "Enter your username",
+  "ENTER_USERPASSWORD": "Enter your пароль",
+  "ERROR_MESSAGE": "You have entered an incorrect username or password!!!"
+}

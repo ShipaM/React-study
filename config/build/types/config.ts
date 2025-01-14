@@ -18,3 +18,5 @@ export interface BuildOptions {
   isDev: boolean;
   port: number;
 }
+
+declare const __IS_DEV__: boolean;
