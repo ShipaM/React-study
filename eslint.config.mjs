@@ -5,8 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import i18next from "eslint-plugin-i18next";
 import reactHooks from "eslint-plugin-react-hooks"; // Import react-hooks plugin
 
-/ @type {import('eslint').Linter.Config[]} */;
-export default [
+/**@type {import('eslint').Linter.Config[]} */ export default [
   {
     ignores: ["vitest.config.mts"], // Replaced `ignorePatterns` with `ignores`
     files: ["/*.{js,mjs,cjs,ts,jsx,tsx}"], // For all project files
@@ -40,7 +39,7 @@ export default [
   },
   // Test-specific configuration moved to the flat config array
   {
-    files: ["/src//*.test.{ts,tsx}"], // Target all test files
+    files: ["**/src/**/*.test.{ts,tsx}"], // Target all test files
     rules: {
       "i18next/no-literal-string": "off", // Disable the `no-literal-string` rule for test files
     },
