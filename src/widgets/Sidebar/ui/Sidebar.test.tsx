@@ -3,7 +3,7 @@ import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
 import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation/renderWithTranslation";
 
-describe.skip("Sidebar", () => {
+describe("Sidebar", () => {
   it("renders Sidebar with the correct structure", () => {
     renderWithTranslation(<Sidebar />);
 
