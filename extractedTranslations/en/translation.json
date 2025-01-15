@@ -1,7 +1,10 @@
 {
   "ABOUT_PAGE": "",
+  "AN_UNEXPECTED_ERROR": "AN_UNEXPECTED_ERROR",
   "MAIN_PAGE": "",
   "NAV_ABOUT_LINK": "",
   "NAV_MAIN_LINK": "",
-  "PAGE_NOT_FOUND": "PAGE_NOT_FOUND"
+  "PAGE_NOT_FOUND": "PAGE_NOT_FOUND",
+  "RELOAD_PAGE": "RELOAD_PAGE",
+  "throw error": "throw error"
 }

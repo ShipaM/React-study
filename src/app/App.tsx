@@ -9,6 +9,7 @@ import { PageLoader } from "widgets/PageLoader";
 
 const App: React.FC = () => {
   const { theme } = useTheme();
+
   return (
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback={<PageLoader />}>
