@@ -1,0 +1,17 @@
+{
+  "TEST_EXAMPLE": "Тестовий приклад",
+  "TRANSLATION": "Переклад",
+  "MAIN_PAGE": "Головна сторінка",
+  "LANGUAGE": "Українсська",
+  "SHORT_LANGUAGE": "UA",
+  "PAGE_NOT_FOUND": "Сторінка незнайдена",
+  "NAV_ABOUT_LINK": "О нас",
+  "NAV_MAIN_LINK": "Головна",
+  "AN_UNEXPECTED_ERROR": "Сталася непередбачена помилка",
+  "RELOAD_PAGE": "Обновіть сторінку",
+  "THROW_ERROR": "throw error",
+  "LOGIN": "Увійти",
+  "ENTER_USERNAME": "Введіть username",
+  "ENTER_USERPASSWORD": "Введіть пароль",
+  "ERROR_MESSAGE": "Ви ввели неправильний логін або пароль!!!"
+}

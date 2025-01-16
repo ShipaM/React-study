@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
