@@ -47,25 +47,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  const sassLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-      {
-        loader: "css-loader",
-        options: {
-          modules: {
-            auto: (resPath: string) => Boolean(resPath.includes(".module.")),
-            localIdentName: options.isDev
-              ? "[path][name]__[local]"
-              : "[hash:base64:8]",
-          },
-        },
-      },
-      "sass-loader",
-    ],
-  };
-
   //If we don't use typescript, we need babel-loader
   const typescriptLoader = {
     test: /\.tsx?$/,
@@ -82,12 +63,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
-  return [
-    fileLoader,
-    svgLoader,
-    babelLoader,
-    typescriptLoader,
-    cssLoader,
-    sassLoader,
-  ];
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
