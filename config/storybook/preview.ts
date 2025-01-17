@@ -22,3 +22,18 @@ const preview: Preview = {
 };
 
 export default preview;
+
+export const globalTypes = {
+  locale: {
+    name: "Locale",
+    description: "Internationalization locale",
+    toolbar: {
+      icon: "globe",
+      items: [
+        { value: "en", title: "English" },
+        { value: "ua", title: "Ukranian" },
+      ],
+      showName: true,
+    },
+  },
+};
