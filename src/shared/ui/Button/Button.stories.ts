@@ -190,6 +190,7 @@ DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const SquareLight: Story = {
   args: {
     square: true,
+    children: "<",
   },
 };
 SquareLight.decorators = [ThemeDecorator(Theme.LIGHT)];
@@ -198,6 +199,7 @@ SquareLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const SquareDark: Story = {
   args: {
     square: true,
+    children: ">",
   },
 };
 SquareDark.decorators = [ThemeDecorator(Theme.DARK)];
