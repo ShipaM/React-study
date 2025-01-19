@@ -38,7 +38,7 @@ export const DefaultLangSwitcher: Story = {
 // LangSwitcher with the "short" prop
 export const ShortLangSwitcher: Story = {
   args: {
-    short: true, // Show short language code (e.g., "RU" or "EN")
+    short: true, // Show short language code (e.g., "UA" or "EN")
   },
 };
 

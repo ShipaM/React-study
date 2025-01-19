@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import "./styles/index";
 import { useTheme } from "./providers/ThemeProvider";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppRouter } from "./providers/router";
@@ -13,9 +12,9 @@ const App: React.FC = () => {
   return (
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback={<PageLoader />}>
-        <Navbar />
+        <Navbar data-testid="navbar" />
         <div className="content-page">
-          <Sidebar />
+          <Sidebar data-testid="sidebar" />
           <AppRouter />
         </div>
       </Suspense>
