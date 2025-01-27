@@ -3,19 +3,38 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import i18next from "eslint-plugin-i18next";
-import reactHooks from "eslint-plugin-react-hooks"; // Import react-hooks plugin
+import pluginHooks from "eslint-plugin-react-hooks"; // Import react-hooks plugin
+import pluginRefresh from "eslint-plugin-react-refresh";
 
-/**@type {import('eslint').Linter.Config[]} */ export default [
+/**@type {import('eslint').Linter.Config[]} */
+export default [
   {
-    ignores: ["vitest.config.mts"], // Replaced `ignorePatterns` with `ignores`
-    files: ["/*.{js,mjs,cjs,ts,jsx,tsx}"], // For all project files
+    ignores: ["coverage", "coverage", "node_modules"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    settings: {
+      react: {
+        version: "detect",
+      },
+      // https://github.com/import-js/eslint-import-resolver-typescript#configuration
+      "import/resolver": {
+        typescript: true,
+        node: true,
+      },
+    },
   },
   {
     languageOptions: {
-      globals: { ...globals.browser, ...globals.serviceworker },
+      globals: {
+        ...globals.browser,
+        ...globals.serviceworker,
+        ...globals.node,
+      },
     },
   },
   pluginJs.configs.recommended,
+  pluginRefresh.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   i18next.configs["flat/recommended"],
@@ -27,14 +46,15 @@ import reactHooks from "eslint-plugin-react-hooks"; // Import react-hooks plugin
     },
   },
   {
-    files: ["/*.{ts,tsx}"], // Target all TypeScript and TSX files
     plugins: {
-      "react-hooks": reactHooks, // Define the react-hooks plugin properly
+      "react-hooks": pluginHooks,
     },
     rules: {
       // Enable recommended rules for react-hooks
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
+      "react/react-in-jsx-scope": "off",
+      ...pluginHooks.configs.recommended.rules,
     },
   },
   // Test-specific configuration moved to the flat config array

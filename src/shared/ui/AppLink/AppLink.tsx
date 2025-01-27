@@ -2,12 +2,7 @@ import React from "react";
 import "./AppLink.css";
 import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
-
-export enum AppLinkTheme {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-  RED = "red",
-}
+import { AppLinkTheme } from "./appLinkConstants";
 
 interface IAppLink extends LinkProps {
   className?: string;

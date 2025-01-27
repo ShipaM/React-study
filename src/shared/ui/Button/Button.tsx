@@ -1,20 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import React, { ButtonHTMLAttributes } from "react";
 import "./Button.css";
-
-export enum ButtonSize {
-  M = "size-m",
-  L = "size-l",
-  XL = "size-xl",
-}
-
-export enum ButtonTheme {
-  CLEAR = "clear",
-  CLEAR_INVERTED = "clear-inverted",
-  OUTLINE = "outline",
-  BACKGROUND = "background",
-  BACKGROUND_INVERTED = "background-inverted",
-}
+import { ButtonTheme, ButtonSize } from "./buttonConstants";
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

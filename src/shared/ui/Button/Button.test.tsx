@@ -1,7 +1,7 @@
- 
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { Button } from "shared/ui/Button/Button";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { ButtonTheme } from "./buttonConstants";
 // Create a mock for the useTranslation hook
 
 describe("Button", () => {

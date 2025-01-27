@@ -2,13 +2,15 @@ import { classNames } from "shared/lib/classNames/classNames";
 import "./Sidebar.css";
 import React, { useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher/ui/ThemeSwitcher";
-import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { Button } from "shared/ui/Button/Button";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import { useTranslation } from "react-i18next";
 import MainIcon from "shared/assets/icons/main-20-20.svg";
 import AboutIcon from "shared/assets/icons/about-20-20.svg";
 import { RoutePath } from "shared/config/routerConfig/routeConfig";
 import { LangSwitcher } from "widgets/LangSwitcher";
+import { AppLinkTheme } from "shared/ui/AppLink/appLinkConstants";
+import { ButtonTheme, ButtonSize } from "shared/ui/Button/buttonConstants";
 
 interface ISidebarProps {
   className?: string;
