@@ -12,6 +12,7 @@ const preview: Preview = {
     RouterDecorator,
   ],
   parameters: {
+    __IS_DEV__: true,
     controls: {
       matchers: {
         color: /(background|color)$/i,
