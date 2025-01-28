@@ -22,7 +22,7 @@ export const LangSwitcher: React.FC<ILangSwitcherProps> = ({
     <Button
       data-testid="lang-switcher"
       className={classNames("LangSwitcher", {}, [className])}
-      theme={ButtonTheme.CLEAR}
+      theme={ButtonTheme.CLEAR_INVERTED}
       onClick={toggle}
     >
       {t(short ? "SHORT_LANGUAGE" : "LANGUAGE")}
