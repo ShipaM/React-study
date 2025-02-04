@@ -50,6 +50,7 @@
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
+
 .collapsed .switchers {
   flex-direction: column;
   align-items: center;
