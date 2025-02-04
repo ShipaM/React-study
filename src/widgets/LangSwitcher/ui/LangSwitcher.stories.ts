@@ -10,6 +10,7 @@ const meta: Meta<typeof LangSwitcher> = {
   parameters: {
     layout: "centered", // Centers the component in the preview
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     short: {
       control: "boolean", // Allows toggling the short version of the language text

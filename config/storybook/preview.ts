@@ -4,12 +4,20 @@ import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterD
 import { StyleDecorator } from "shared/config/storybook/StyleDecorator/StyleDecorator";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import "../../src/shared/config/i18n/i18n";
+import { I18nDecorator } from "shared/config/storybook/I18nDecorator/I18nDecorator";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const preview: Preview = {
   decorators: [
     (Story) => Story(StyleDecorator),
     ThemeDecorator(Theme.LIGHT),
     RouterDecorator,
+    I18nDecorator,
+    StoreDecorator({
+      loginForm: { username: "", password: "", isLoading: false },
+      counter: { value: 0 },
+      user: {},
+    }),
   ],
   parameters: {
     __IS_DEV__: true,

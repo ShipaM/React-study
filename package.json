@@ -14,7 +14,8 @@
     "lint:css:fix": "npx stylelint \"**/*.css\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6007 -c config/storybook",
-    "storybook:build": "storybook build -c config/storybook"
+    "storybook:build": "storybook build -c config/storybook",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -37,7 +38,7 @@
     "@svgr/webpack": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.1.0",
+    "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.7",
@@ -58,10 +59,13 @@
     "file-loader": "^6.2.0",
     "globals": "^15.14.0",
     "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "json-server": "^0.17.4",
     "mini-css-extract-plugin": "^2.9.2",
+    "react-study-desygn-system": "^1.0.0",
     "regenerator-runtime": "^0.14.1",
     "sass": "^1.83.1",
     "sass-loader": "^16.0.4",
@@ -76,11 +80,11 @@
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0",
-    "json-server": "^0.17.4"
+    "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
+    "axios": "^1.7.9",
     "i18next": "^24.2.1",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",

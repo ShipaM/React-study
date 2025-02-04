@@ -6,6 +6,10 @@ import { Theme } from "app/providers/ThemeProvider";
 const meta: Meta<typeof Navbar> = {
   title: "widgets/Navbar",
   component: Navbar,
+  parameters: {
+    layout: "centered", // Center the component in the preview
+  },
+  tags: ["autodocs"], // Enable auto documentation
 };
 
 export default meta;

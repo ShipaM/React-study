@@ -5,11 +5,12 @@ import { Theme } from "app/providers/ThemeProvider";
 
 // Meta configuration for Storybook
 const meta: Meta<typeof About> = {
-  title: "pages/About", // Title for the Storybook sidebar
+  title: "pages/About",
   component: About,
   parameters: {
     layout: "centered", // Centers the component in the preview
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {},
 };
 

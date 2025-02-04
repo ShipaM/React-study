@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.login-btn {
+  margin: 0 auto;
+}
+
+.login-title {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-error {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}

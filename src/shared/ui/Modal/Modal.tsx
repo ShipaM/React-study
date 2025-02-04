@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import "./Modal.css";
 import { Portal } from "../Portal/Portal";
+import { useTheme } from "app/providers/ThemeProvider";
 
 interface IModalProps {
   className?: string;
@@ -23,6 +24,7 @@ export const Modal: React.FC<IModalProps> = ({
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
+  const { theme } = useTheme();
   //ReturnType is the data type that a function or method returns as a result of its execution. Simply put, this is what you get from the function when it completes its work.
 
   // function add(a: number, b: number): number {
@@ -91,7 +93,7 @@ export const Modal: React.FC<IModalProps> = ({
     <Portal>
       <div
         data-testid="modal"
-        className={classNames("modal", mods, [className])}
+        className={classNames("modal", mods, [className, theme, "app-modal"])}
       >
         <div data-testid="overlay" className="overlay" onClick={closeHandler}>
           <div

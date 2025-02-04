@@ -1,4 +1,5 @@
-button {
+.decrement-btn,
+.increment-btn {
   padding: 15px;
   border-radius: 20%;
   margin: 10px;

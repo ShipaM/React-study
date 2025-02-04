@@ -29,10 +29,10 @@
   pointer-events: auto;
   opacity: 1;
   z-index: var(--modal-z-index);
+}
 
-  .content {
-    transform: scale(1);
-  }
+.opened .content {
+  transform: scale(1);
 }
 
 .is-closing {

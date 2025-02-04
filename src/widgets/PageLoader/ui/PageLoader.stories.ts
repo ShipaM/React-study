@@ -9,6 +9,7 @@ const meta: Meta<typeof PageLoader> = {
   parameters: {
     layout: "centered", // Centers the component in the Storybook layout
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     className: { control: "text" }, // Allows changing className from Storybook
   },

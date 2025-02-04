@@ -2,7 +2,12 @@
   "ABOUT_PAGE": "ABOUT_PAGE",
   "AN_UNEXPECTED_ERROR": "AN_UNEXPECTED_ERROR",
   "ENTER": "ENTER",
+  "ENTER_USERNAME": "ENTER_USERNAME",
+  "ENTER_USERPASSWORD": "ENTER_USERPASSWORD",
+  "ERROR_MESSAGE": "ERROR_MESSAGE",
+  "LANGUAGE": "LANGUAGE",
   "LOGIN": "LOGIN",
+  "LOGOUT": "LOGOUT",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
       "": ""

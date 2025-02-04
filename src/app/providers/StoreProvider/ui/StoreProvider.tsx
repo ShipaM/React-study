@@ -7,7 +7,6 @@ interface IStoreProviderProps {
   children?: ReactNode;
   initialState?: StateSchema;
 }
-
 export const StoreProvider: React.FC<IStoreProviderProps> = ({
   children,
   initialState,

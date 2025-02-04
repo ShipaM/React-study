@@ -9,8 +9,8 @@ const meta: Meta<typeof Modal> = {
   parameters: {
     layout: "centered", // Centers the component in Storybook
   },
- tags: ["autodocs"], // Enable auto documentation
- args: {
+  tags: ["autodocs"], // Enable auto documentation
+  args: {
     children: "Modal Window", // Default value for the button text
   },
 };
@@ -20,15 +20,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ModalLight: Story = {
- args: {
-  isOpen: true
+  args: {
+    isOpen: true,
   },
 };
 ModalLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const ModalDark: Story = {
- args: {
-   isOpen: true
+  args: {
+    isOpen: true,
   },
 };
 ModalDark.decorators = [ThemeDecorator(Theme.DARK)];

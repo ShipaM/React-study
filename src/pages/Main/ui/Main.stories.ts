@@ -1,15 +1,16 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Main from "./Main"; // Adjust the import if necessary
+import Main from "./Main";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 // Meta configuration for Storybook
 const meta: Meta<typeof Main> = {
-  title: "pages/Main", // Title for the Storybook sidebar
+  title: "pages/Main",
   component: Main,
   parameters: {
     layout: "centered", // Center the component in the preview
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {},
 };
 

@@ -11,6 +11,7 @@ const meta: Meta<typeof AppLink> = {
   parameters: {
     layout: "centered", // Center the component in the Storybook layout
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     theme: {
       control: "select",

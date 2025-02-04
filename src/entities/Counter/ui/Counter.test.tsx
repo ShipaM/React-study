@@ -7,7 +7,10 @@ import userEvent from "@testing-library/user-event";
 describe("Counter", () => {
   test("test render", () => {
     componentRender(<Counter />, {
-      initialState: { counter: { value: 10 } },
+      initialState: {
+        counter: { value: 10 },
+        user: undefined
+      },
     });
 
     expect(screen.getByTestId("value-title")).toHaveTextContent("10");
@@ -15,7 +18,10 @@ describe("Counter", () => {
 
   test("increment", async () => {
     componentRender(<Counter />, {
-      initialState: { counter: { value: 10 } },
+      initialState: {
+        counter: { value: 10 },
+        user: undefined
+      },
     });
 
     await userEvent.click(screen.getByTestId("increment-btn"));
@@ -24,7 +30,10 @@ describe("Counter", () => {
 
   test("decrement", async () => {
     componentRender(<Counter />, {
-      initialState: { counter: { value: 10 } },
+      initialState: {
+        counter: { value: 10 },
+        user: undefined
+      },
     });
 
     await userEvent.click(screen.getByTestId("decrement-btn"));

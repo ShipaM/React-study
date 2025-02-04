@@ -11,6 +11,7 @@
   "RELOAD_PAGE": "Reload page",
   "THROW_ERROR": "Error",
   "LOGIN": "Login",
+  "LOGOUT": "Logout",
   "ENTER_USERNAME": "Enter your username",
   "ENTER_USERPASSWORD": "Enter your пароль",
   "ERROR_MESSAGE": "You have entered an incorrect username or password!!!"

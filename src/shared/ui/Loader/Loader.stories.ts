@@ -10,6 +10,7 @@ const meta: Meta<typeof Loader> = {
   parameters: {
     layout: "centered", // Centers the component in Storybook's layout
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     className: {
       control: "text", // Allows the user to input a custom class name for the loader

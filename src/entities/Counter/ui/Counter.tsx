@@ -21,10 +21,18 @@ export const Counter: React.FC<ICounterProps> = ({ className }) => {
   return (
     <div className={classNames("Counter", {}, [className])}>
       <h1 data-testid="value-title">{counterValue}</h1>
-      <button data-testid="increment-btn" onClick={increment}>
+      <button
+        className="increment-btn"
+        data-testid="increment-btn"
+        onClick={increment}
+      >
         +
       </button>
-      <button data-testid="decrement-btn" onClick={decrement}>
+      <button
+        className="decrement-btn"
+        data-testid="decrement-btn"
+        onClick={decrement}
+      >
         -
       </button>
     </div>

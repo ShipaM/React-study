@@ -10,6 +10,7 @@ const meta: Meta<typeof ThemeSwitcher> = {
   parameters: {
     layout: "centered", // Center the component in the Storybook layout
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     className: {
       control: "text", // Allow to pass a custom class name to the component

@@ -10,6 +10,7 @@ const meta: Meta<typeof NotFound> = {
   parameters: {
     layout: "centered", // Centers the component in the preview window
   },
+  tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     className: {
       control: "text", // Custom class name for styling
