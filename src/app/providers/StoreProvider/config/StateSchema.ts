@@ -12,7 +12,7 @@ export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
 
-  //async reducer
+  //async reducers
   loginForm?: LoginSchema;
 }
 

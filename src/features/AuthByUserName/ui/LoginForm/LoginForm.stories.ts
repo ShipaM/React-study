@@ -31,8 +31,8 @@ export const LoginFormWithError: Story = {
 LoginFormWithError.decorators = [
   StoreDecorator({
     loginForm: {
-      username: "123",
-      password: "123",
+      username: "",
+      password: "",
       isLoading: false,
       error: "You have entered an incorrect username or password!!!",
     },
@@ -50,8 +50,8 @@ LoginFormWithErrorInDarkTheme.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     loginForm: {
-      username: "123",
-      password: "123",
+      username: "",
+      password: "",
       isLoading: false,
       error: "You have entered an incorrect username or password!!!",
     },
