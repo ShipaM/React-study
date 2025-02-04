@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import { Input } from "./Input";
 import React from "react";
 
@@ -29,9 +29,14 @@ describe("InputComponent", () => {
 
   test("updates caret position on text input", () => {
     render(<Input />);
+
     const input = screen.getByTestId("input");
+
     fireEvent.change(input, { target: { value: "hello" } });
-    fireEvent.select(input, { target: { selectionStart: 3 } });
+
+    act(() => {
+      fireEvent.select(input, { target: { selectionStart: 3 } });
+    });
 
     // Assuming caret logic is bound to left property
     const caret = document.querySelector(".caret");
@@ -40,10 +45,19 @@ describe("InputComponent", () => {
 
   test("handles focus and blur events", () => {
     render(<Input />);
+
     const input = screen.getByTestId("input");
-    fireEvent.focus(input);
+
+    act(() => {
+      fireEvent.focus(input); // 🔥 This triggers setIsFocused(true);
+    });
+
     expect(document.querySelector(".caret")).toBeInTheDocument();
-    fireEvent.blur(input);
+
+    act(() => {
+      fireEvent.blur(input); // 🔥 This triggers setIsFocused(true);
+    });
+
     expect(document.querySelector(".caret")).not.toBeInTheDocument();
   });
 });

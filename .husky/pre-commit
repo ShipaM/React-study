@@ -3,6 +3,6 @@
 
 npm run build:prod
 npm run lint:ts
-npm run lint:scss
+npm run lint:css
 npm run test:unit
 npm run storybook:build
