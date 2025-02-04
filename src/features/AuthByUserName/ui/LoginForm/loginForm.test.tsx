@@ -11,7 +11,7 @@ jest.mock("react-redux", () => ({
 }));
 
 describe.skip("LoginForm", () => {
-  it("Рендерит форму", () => {
+  it("Renders form", () => {
     const { getByText, getByRole } = componentRender(<LoginForm />, {
       initialState: {
         loginForm: {
