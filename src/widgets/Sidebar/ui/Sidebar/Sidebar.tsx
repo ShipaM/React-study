@@ -1,16 +1,12 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import "./Sidebar.css";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher/ui/ThemeSwitcher";
 import { Button } from "shared/ui/Button/Button";
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { useTranslation } from "react-i18next";
-import MainIcon from "shared/assets/icons/main-20-20.svg";
-import AboutIcon from "shared/assets/icons/about-20-20.svg";
-import { RoutePath } from "shared/config/routerConfig/routeConfig";
 import { LangSwitcher } from "widgets/LangSwitcher";
-import { AppLinkTheme } from "shared/ui/AppLink/appLinkConstants";
 import { ButtonTheme, ButtonSize } from "shared/ui/Button/buttonConstants";
+import { SidebarItemsList } from "../../model/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface ISidebarProps {
   className?: string;
@@ -18,11 +14,17 @@ interface ISidebarProps {
 
 export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
+  const [col, setCol] = useState(0);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
+
+  const itemsList = useMemo(() => {
+    return SidebarItemsList.map((item) => (
+      <SidebarItem item={item} collapsed={collapsed} key={item.text} />
+    ));
+  }, [collapsed]);
 
   return (
     <div
@@ -42,22 +44,8 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
         {collapsed ? ">" : "<"}
       </Button>
       <div className={classNames("items", {}, [className])}>
-        <AppLink
-          to={RoutePath.main}
-          theme={AppLinkTheme.SECONDARY}
-          className={classNames("item", {}, [className])}
-        >
-          <MainIcon className="icon" />
-          <span className="link">{t("NAV_MAIN_LINK")}</span>
-        </AppLink>
-        <AppLink
-          to={RoutePath.about}
-          theme={AppLinkTheme.SECONDARY}
-          className={classNames("item", {}, [className])}
-        >
-          <AboutIcon className="icon" />
-          <span className="link">{t("NAV_ABOUT_LINK")}</span>
-        </AppLink>
+        <button onClick={() => setCol(col + 1)}>{col}</button>
+        {itemsList}
       </div>
       <div className={classNames("switchers", {}, [className])}>
         <ThemeSwitcher />

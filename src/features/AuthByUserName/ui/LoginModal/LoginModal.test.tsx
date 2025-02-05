@@ -4,7 +4,7 @@ import { LoginModal } from "./LoginModal";
 import { componentRender } from "shared/lib/tests/componentRender/ComponentRender";
 
 describe("LoginModal", () => {
-  test("renders with correct props", () => {
+  test("renders with correct props", async () => {
     // Mock props
     const props = {
       isOpen: true,
@@ -12,7 +12,7 @@ describe("LoginModal", () => {
     };
 
     // Render the component
-    const { getByTestId } = componentRender(
+    const { getByTestId, getByRole } = componentRender(
       <LoginModal {...props} />,
       {
         initialState: {
@@ -22,9 +22,14 @@ describe("LoginModal", () => {
         },
       }
     );
+
     // Assertions
-    expect(getByTestId("modal")).toHaveClass("opened");
-    // expect(getByRole("button", { name: "LOGIN" })).toBeInTheDocument(); // Assuming "LOGIN" key is in LoginForm
+    await waitFor(() => {
+      expect(getByTestId("modal")).toHaveClass("opened");
+    });
+    await waitFor(() => {
+      expect(getByRole("button", { name: "LOGIN" })).toBeInTheDocument(); // Assuming "LOGIN" key is in LoginForm
+    });
   });
 
   test("does not render when isOpen is false", async () => {
@@ -55,10 +60,13 @@ describe("LoginModal", () => {
       }
     );
     // Simulate modal close action
-    await fireEvent.click(getByTestId("overlay"));
+    fireEvent.click(getByTestId("overlay"));
 
     // Assertion
-    expect(getByTestId("modal")).toHaveClass("opened");
+
+    await waitFor(() => {
+      expect(getByTestId("modal")).toHaveClass("opened");
+    });
     await waitFor(() => {
       expect(onCloseMock).toHaveBeenCalled();
     });
@@ -85,7 +93,7 @@ describe("LoginModal", () => {
     });
   });
 
-  test.skip("renders with error", () => {
+  test("renders with error", async () => {
     // Mock props
     const props = {
       isOpen: true,
@@ -106,6 +114,9 @@ describe("LoginModal", () => {
       },
     });
     // Assertions
-    expect(getByText("Error")).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(getByText("Error")).toBeInTheDocument();
+    });
   });
 });

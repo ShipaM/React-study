@@ -5,25 +5,28 @@ import userEvent from "@testing-library/user-event";
 
 const mockDispatch = jest.fn();
 
-jest.mock("react-redux", () => ({
-  ...jest.requireActual("react-redux"),
-  useDispatch: () => mockDispatch,
+jest.mock("shared/lib/hooks/useAppDispatch", () => ({
+  ...jest.requireActual("shared/lib/hooks/useAppDispatch"),
+  useAppDispatch: () => mockDispatch,
 }));
 
 describe("LoginForm", () => {
   it("Renders form", () => {
-    const { getByText, getByRole } = componentRender(<LoginForm />, {
-      initialState: {
-        loginForm: {
-          username: "",
-          password: "",
-          isLoading: false,
-          error: null,
+    const { getByText, getByRole } = componentRender(
+      <LoginForm onSuccess={jest.fn()} />,
+      {
+        initialState: {
+          loginForm: {
+            username: "",
+            password: "",
+            isLoading: false,
+            error: null,
+          },
+          counter: { value: 10 },
+          user: undefined,
         },
-        counter: { value: 10 },
-        user: undefined,
-      },
-    });
+      }
+    );
 
     expect(getByText(/ENTER_USERNAME/i)).toBeInTheDocument();
     expect(getByText(/ENTER_USERPASSWORD/i)).toBeInTheDocument();
@@ -31,17 +34,20 @@ describe("LoginForm", () => {
   });
 
   it("calls dispatch when inputs change valuee", async () => {
-    const { findByTestId } = componentRender(<LoginForm />, {
-      initialState: {
-        loginForm: {
-          username: "",
-          password: "",
-          isLoading: false,
+    const { findByTestId } = componentRender(
+      <LoginForm onSuccess={jest.fn()} />,
+      {
+        initialState: {
+          loginForm: {
+            username: "",
+            password: "",
+            isLoading: false,
+          },
+          counter: { value: 10 },
+          user: undefined,
         },
-        counter: { value: 10 },
-        user: undefined,
-      },
-    });
+      }
+    );
 
     const usernameInput = await findByTestId("user-name");
     const passwordInput = await findByTestId("user-password");
@@ -59,27 +65,38 @@ describe("LoginForm", () => {
     });
   });
 
-  it("dispatches login action on button click", async () => {
-    const { getByRole } = componentRender(<LoginForm />, {
-      initialState: {
-        loginForm: {
-          username: "123",
-          password: "123",
-          isLoading: false,
-          error: "Error",
-        },
-        counter: { value: 10 },
-        user: undefined,
-      },
+  it("dispatches login action on button click and calls onSuccess", async () => {
+    const onSuccessMock = jest.fn();
+
+    // Mock dispatch to return a resolved action with `meta.requestStatus`
+    mockDispatch.mockResolvedValue({
+      meta: { requestStatus: "fulfilled" }, // ✅ Ensure `meta` exists
     });
+
+    const { getByRole } = componentRender(
+      <LoginForm onSuccess={onSuccessMock} />,
+      {
+        initialState: {
+          loginForm: {
+            username: "admin",
+            password: "123",
+            isLoading: false,
+          },
+          counter: { value: 10 },
+          user: undefined,
+        },
+      }
+    );
 
     const button = getByRole("button", { name: "LOGIN" });
     await userEvent.click(button);
 
     expect(mockDispatch).toHaveBeenCalledWith(expect.any(Function));
+    expect(onSuccessMock).toHaveBeenCalled(); // ✅ This should now be called
   });
-  it.skip("disables the login button when loading", () => {
-    const { getByRole } = componentRender(<LoginForm />, {
+
+  it("disables the login button when loading", () => {
+    const { getByRole } = componentRender(<LoginForm onSuccess={jest.fn()} />, {
       initialState: {
         loginForm: { username: "", password: "", isLoading: true },
         counter: { value: 10 },
@@ -90,8 +107,8 @@ describe("LoginForm", () => {
     expect(getByRole("button", { name: "LOGIN" })).toBeDisabled();
   });
 
-  it.skip("displays an error message if an error exists", () => {
-    const { getByText } = componentRender(<LoginForm />, {
+  it("displays an error message if an error exists", () => {
+    const { getByText } = componentRender(<LoginForm onSuccess={jest.fn()} />, {
       initialState: {
         loginForm: {
           username: "123",
@@ -106,4 +123,6 @@ describe("LoginForm", () => {
 
     expect(getByText("Error")).toBeInTheDocument();
   });
+
+  
 });

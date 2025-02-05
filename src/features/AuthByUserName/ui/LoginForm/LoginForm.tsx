@@ -5,11 +5,10 @@ import { Button } from "react-study-desygn-system";
 import { Text } from "shared/ui/Text/Text";
 import "./LoginForm.css";
 import { Input } from "shared/ui/Input/Input";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { loginByUsername } from "features/AuthByUserName/model/services/loginByUserName/loginByUsername";
 import { TextTheme } from "shared/ui/Text/textConstants";
-import { AppDispatch } from "app/providers/StoreProvider/config/config";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
@@ -18,16 +17,18 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 
 export interface ILoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = { loginForm: loginReducer };
 
-const LoginForm: React.FC<ILoginFormProps> = ({ className }) => {
+const LoginForm: React.FC<ILoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
   // const store = useStore() as ReduxStoreWithManager;
 
@@ -50,9 +51,10 @@ const LoginForm: React.FC<ILoginFormProps> = ({ className }) => {
     [dispatch]
   );
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const res = await dispatch(loginByUsername({ username, password }));
+    if (res?.meta?.requestStatus === "fulfilled") onSuccess();
+  }, [dispatch, password, username, onSuccess]);
 
   // useEffect(() => {
   //   store.reducerManager.add("loginForm", loginReducer);
