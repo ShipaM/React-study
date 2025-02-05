@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./Profile";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 

@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import React from "react";
+import React, { memo } from "react";
 import { Button } from "shared/ui/Button/Button";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 
@@ -9,23 +11,22 @@ interface ILangSwitcherProps {
   short?: boolean;
 }
 
-export const LangSwitcher: React.FC<ILangSwitcherProps> = ({
-  className,
-  short,
-}) => {
-  const { t, i18n } = useTranslation();
-  const toggle = async () => {
-    i18n.changeLanguage(i18n.language === "ua" ? "en" : "ua");
-  };
+export const LangSwitcher: React.FC<ILangSwitcherProps> = memo(
+  ({ className, short }) => {
+    const { t, i18n } = useTranslation();
+    const toggle = async () => {
+      i18n.changeLanguage(i18n.language === "ua" ? "en" : "ua");
+    };
 
-  return (
-    <Button
-      data-testid="lang-switcher"
-      className={classNames("LangSwitcher", {}, [className])}
-      theme={ButtonTheme.CLEAR_INVERTED}
-      onClick={toggle}
-    >
-      {t(short ? "SHORT_LANGUAGE" : "LANGUAGE")}
-    </Button>
-  );
-};
+    return (
+      <Button
+        data-testid="lang-switcher"
+        className={classNames("LangSwitcher", {}, [className])}
+        theme={ButtonTheme.CLEAR_INVERTED}
+        onClick={toggle}
+      >
+        {t(short ? "SHORT_LANGUAGE" : "LANGUAGE")}
+      </Button>
+    );
+  }
+);

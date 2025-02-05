@@ -1,6 +1,7 @@
+/* eslint-disable react/display-name */
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import React, { useCallback, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { Button } from "shared/ui/Button/Button";
 import "./Navbar.css";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
@@ -12,7 +13,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const dispatch = useDispatch();
@@ -59,4 +60,4 @@ export const Navbar = ({ className }: NavbarProps) => {
       )}
     </div>
   );
-};
+});

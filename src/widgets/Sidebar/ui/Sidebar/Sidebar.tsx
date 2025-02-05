@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import { classNames } from "shared/lib/classNames/classNames";
 import "./Sidebar.css";
-import React, { useMemo, useState } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher/ui/ThemeSwitcher";
 import { Button } from "shared/ui/Button/Button";
 import { LangSwitcher } from "widgets/LangSwitcher";
@@ -12,9 +14,8 @@ interface ISidebarProps {
   className?: string;
 }
 
-export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
+export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const [col, setCol] = useState(0);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -43,14 +44,11 @@ export const Sidebar: React.FC<ISidebarProps> = ({ className }) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-      <div className={classNames("items", {}, [className])}>
-        <button onClick={() => setCol(col + 1)}>{col}</button>
-        {itemsList}
-      </div>
+      <div className={classNames("items", {}, [className])}>{itemsList}</div>
       <div className={classNames("switchers", {}, [className])}>
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className="lang" />
       </div>
     </div>
   );
-};
+});
