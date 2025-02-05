@@ -5,11 +5,14 @@ import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
 import { DeepPartial } from "shared/types/deepPartial";
+import { $api } from "shared/api/api";
+import { NavigateFunction } from "react-router-dom";
 // import { loginReducer } from "features/AuthByUserName";
 
 export function createReduxStore(
   initialState?: DeepPartial<StateSchema>,
-  asyncReducers?: ReducersMapObject<StateSchema>
+  asyncReducers?: ReducersMapObject<StateSchema>,
+  navigate?: NavigateFunction
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -18,10 +21,20 @@ export function createReduxStore(
     // loginForm: loginReducer,
   };
   const reducerManager = createReducerManager(rootReducers);
+
   const store = configureStore({
     reducer: reducerManager.reduce,
     preloadedState: initialState,
     devTools: __IS_DEV__,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+            navigate,
+          },
+        },
+      }),
   });
 
   //@ts-ignore

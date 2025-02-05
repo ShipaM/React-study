@@ -30,6 +30,8 @@ export default [
         ...globals.browser,
         ...globals.serviceworker,
         ...globals.node,
+        __IS_DEV__: true,
+        __API__: true,
       },
     },
   },
