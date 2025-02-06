@@ -10,6 +10,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUserName";
 import { NavigateFunction } from "react-router-dom";
+import { staticReducers } from "./store";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -27,7 +28,16 @@ export interface ReducerManager {
   reduce: (
     state: StateSchema,
     action: Action
-  ) => { counter: CounterSchema; user: UserSchema; loginForm?: LoginSchema };
+  ) => {
+    counter: CounterSchema;
+    user: UserSchema;
+    loginForm?: LoginSchema;
+    profile?: ProfileSchema;
+  };
+  // reduce: (
+  //   state: StateSchema,
+  //   action: Action
+  // ) => ReturnType<typeof combineReducers>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
 }
@@ -38,10 +48,15 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface IThunkExtraArg {
   api: AxiosInstance;
-  navigate: NavigateFunction;
+  navigate?: NavigateFunction;
 }
 
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
 }
+
+export type StaticReducers = typeof staticReducers;
+
+// All the Reducers of the app
+export type Reducers = Record<StateSchemaKey, Reducer>;

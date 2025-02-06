@@ -31,7 +31,7 @@ export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
     <div
       data-testid="sidebar"
       className={classNames("sidebar", { ["collapsed"]: collapsed }, [
-        className,
+        className ?? "",
       ])}
     >
       <Button

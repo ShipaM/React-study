@@ -68,8 +68,8 @@ export const LoginFormWithLoading: Story = {
 LoginFormWithLoading.decorators = [
   StoreDecorator({
     loginForm: {
-      username: undefined,
-      password: undefined,
+      username: "",
+      password: "",
       isLoading: true,
     },
     counter: { value: 0 },
@@ -86,8 +86,8 @@ LoginFormWithLoadingInDarkTheme.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     loginForm: {
-      username: undefined,
-      password: undefined,
+      username: "",
+      password: "",
       isLoading: true,
     },
     counter: { value: 0 },

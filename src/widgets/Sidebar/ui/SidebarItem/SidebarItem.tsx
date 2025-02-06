@@ -9,7 +9,7 @@ import { ISidebarItemType } from "widgets/Sidebar/model/items";
 import { useTranslation } from "react-i18next";
 
 interface ISidebarItemProps {
-  item?: ISidebarItemType;
+  item: ISidebarItemType;
   collapsed: boolean;
   className?: string;
 }

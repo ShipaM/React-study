@@ -20,10 +20,9 @@ describe("LoginForm", () => {
             username: "",
             password: "",
             isLoading: false,
-            error: null,
           },
           counter: { value: 10 },
-          user: undefined,
+          user: {},
         },
       }
     );
@@ -44,7 +43,7 @@ describe("LoginForm", () => {
             isLoading: false,
           },
           counter: { value: 10 },
-          user: undefined,
+          user: {},
         },
       }
     );
@@ -83,7 +82,7 @@ describe("LoginForm", () => {
             isLoading: false,
           },
           counter: { value: 10 },
-          user: undefined,
+          user: {},
         },
       }
     );
@@ -100,7 +99,7 @@ describe("LoginForm", () => {
       initialState: {
         loginForm: { username: "", password: "", isLoading: true },
         counter: { value: 10 },
-        user: undefined,
+        user: {},
       },
     });
 
@@ -117,12 +116,10 @@ describe("LoginForm", () => {
           error: "Error",
         },
         counter: { value: 10 },
-        user: undefined,
+        user: {},
       },
     });
 
     expect(getByText("Error")).toBeInTheDocument();
   });
-
-  
 });

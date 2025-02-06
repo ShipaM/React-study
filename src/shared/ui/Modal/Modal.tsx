@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import "./Modal.css";
 import { Portal } from "../Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
@@ -34,7 +34,7 @@ export const Modal: React.FC<IModalProps> = ({
   // TypeScript automatically infers that the return type is number
   // type AddReturnType = ReturnType<typeof add>; // The type of AddReturnType will be number
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -59,7 +59,7 @@ export const Modal: React.FC<IModalProps> = ({
     e.stopPropagation();
   };
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     ["opened"]: isOpen,
     ["is-closing"]: isClosing,
   };

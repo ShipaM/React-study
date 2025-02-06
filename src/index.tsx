@@ -10,7 +10,7 @@ import { ThemeProvider } from "app/providers/ThemeProvider";
 import { StoreProvider } from "app/providers/StoreProvider";
 
 // Создаём корень
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 // Рендерим приложение
 root.render(

@@ -21,7 +21,7 @@ export const ThemeSwitcher: React.FC<IThemeSwitcherProps> = memo(
       <Button
         data-testid="theme-switcher"
         theme={ButtonTheme.CLEAR}
-        className={classNames("theme-switcher", {}, [className])}
+        className={classNames("theme-switcher", {}, [className ?? ""])}
         onClick={toggleTheme}
       >
         {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}

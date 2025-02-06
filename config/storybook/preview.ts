@@ -17,6 +17,7 @@ const preview: Preview = {
       loginForm: { username: "", password: "", isLoading: false },
       counter: { value: 0 },
       user: {},
+      profile: { isLoading: false, readonly: false },
     }),
   ],
   parameters: {

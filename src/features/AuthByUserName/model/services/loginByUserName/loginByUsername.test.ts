@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
-import { userActions } from "entities/User";
+import { User, userActions } from "entities/User";
 import { loginByUsername } from "./loginByUsername";
 import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunc/TestAsyncThunk";
 
@@ -27,7 +27,9 @@ describe("loginByUsername.test", () => {
     const result = await action(dispatch, getState, undefined);
     console.log(result);
 
-    expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+    expect(dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue as User)
+    );
     expect(dispatch).toHaveBeenCalledTimes(3);
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");
@@ -52,7 +54,9 @@ describe("loginByUsername.test", () => {
     const result = await action(dispatch, getState, undefined);
     console.log(result);
 
-    expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+    expect(dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue as User)
+    );
     expect(dispatch).toHaveBeenCalledTimes(3);
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");
@@ -78,7 +82,7 @@ describe("loginByUsername.test", () => {
     const result = await thunk.callThunk({ username: "123", password: "123" });
 
     expect(thunk.dispatch).toHaveBeenCalledWith(
-      userActions.setAuthData(userValue)
+      userActions.setAuthData(userValue as User)
     );
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(mockedAxios.post).toHaveBeenCalled();

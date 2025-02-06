@@ -45,7 +45,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     use: ["@svgr/webpack"],
   });
 
-  config.plugins.push(
+  config?.plugins?.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
       __API__: JSON.stringify(""),

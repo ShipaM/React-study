@@ -43,6 +43,10 @@ describe("ThemeProvider", () => {
   test("allows changing the theme", () => {
     const TestComponent = () => {
       const { theme, setTheme } = useContext(ThemeContext);
+
+      if (!setTheme) {
+        throw new Error("setTheme is undefined");
+      }
       return (
         <div>
           <span data-testid="theme-provider">{theme}</span>

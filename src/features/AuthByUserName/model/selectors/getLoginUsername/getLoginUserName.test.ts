@@ -1,12 +1,13 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { getLoginUsername } from "./getLoginUsername";
-import { DeepPartial } from "shared/types/deepPartial";
 
 describe("getLoginUsername", () => {
   test("should return true", () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         username: "admin",
+        password: "",
+        isLoading: false,
       },
     };
 

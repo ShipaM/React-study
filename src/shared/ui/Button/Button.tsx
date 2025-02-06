@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import React, { ButtonHTMLAttributes, memo } from "react";
 import "./Button.css";
 import { ButtonTheme, ButtonSize } from "./buttonConstants";
@@ -17,14 +17,14 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<IButtonProps> = memo(
   ({
     className,
-    theme,
+    theme = ButtonTheme.OUTLINE,
     children,
     square,
     disabled,
     size = ButtonSize.M,
     ...otherProps
   }) => {
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
       ["square"]: square,
       ["disabled"]: disabled,
     };

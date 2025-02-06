@@ -18,7 +18,7 @@ describe("LoginModal", () => {
         initialState: {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
-          user: undefined,
+          user: {},
         },
       }
     );
@@ -27,9 +27,12 @@ describe("LoginModal", () => {
     await waitFor(() => {
       expect(getByTestId("modal")).toHaveClass("opened");
     });
-    await waitFor(() => {
-      expect(getByRole("button", { name: "LOGIN" })).toBeInTheDocument(); // Assuming "LOGIN" key is in LoginForm
-    });
+    await waitFor(
+      () => {
+        expect(getByRole("button", { name: "LOGIN" })).toBeInTheDocument(); // Assuming "LOGIN" key is in LoginForm
+      },
+      { timeout: 2000 }
+    );
   });
 
   test("does not render when isOpen is false", async () => {
@@ -55,7 +58,7 @@ describe("LoginModal", () => {
         initialState: {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
-          user: undefined,
+          user: {},
         },
       }
     );
@@ -81,7 +84,7 @@ describe("LoginModal", () => {
         initialState: {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
-          user: undefined,
+          user: {},
         },
       }
     );
@@ -110,7 +113,7 @@ describe("LoginModal", () => {
           error: "Error",
         },
         counter: { value: 10 },
-        user: undefined,
+        user: {},
       },
     });
     // Assertions

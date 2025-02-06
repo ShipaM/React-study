@@ -1,16 +1,20 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
-import { StateSchema } from "./StateSchema";
+import { IThunkExtraArg, StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
-import { DeepPartial } from "shared/types/deepPartial";
 import { $api } from "shared/api/api";
 import { NavigateFunction } from "react-router-dom";
 // import { loginReducer } from "features/AuthByUserName";
 
+export const staticReducers = {
+  counter: counterReducer,
+  user: userReducer,
+};
+
 export function createReduxStore(
-  initialState?: DeepPartial<StateSchema>,
+  initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
   navigate?: NavigateFunction
 ) {
@@ -22,6 +26,11 @@ export function createReduxStore(
   };
   const reducerManager = createReducerManager(rootReducers);
 
+  const extraArg: IThunkExtraArg = {
+    api: $api,
+    navigate,
+  };
+
   const store = configureStore({
     reducer: reducerManager.reduce,
     preloadedState: initialState,
@@ -29,10 +38,7 @@ export function createReduxStore(
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument: {
-            api: $api,
-            navigate,
-          },
+          extraArgument: extraArg,
         },
       }),
   });

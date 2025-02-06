@@ -1,1 +1,7 @@
-{ "PROFILE_PAGE": "Profile page" }
+{
+  "PROFILE_PAGE": "Profile page",
+  "PROFILE": "Profile",
+  "EDIT": "Edit",
+  "LAST_NAME": "Last name",
+  "FIRST_NAME": "First name"
+}
