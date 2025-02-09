@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { TextTheme } from "./textConstants";
+import { AlignItems, TextTheme } from "./textConstants";
 import { Theme } from "app/providers/ThemeProvider";
 
 // Meta configuration for Storybook
@@ -17,6 +17,10 @@ const meta: Meta<typeof Text> = {
       control: "select",
       options: [TextTheme.ERROR, TextTheme.PRIMARY],
     },
+    alignItems: {
+      control: "select",
+      options: [AlignItems.CENTER, AlignItems.LEFT, AlignItems.RIGHT],
+    },
   },
 };
 
@@ -30,8 +34,62 @@ export const DefaultText: Story = {
     title: "Primary Title",
     text: "This is a primary text",
     theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.LEFT,
   },
 };
+
+// Default Text story Dark
+export const DefaultTextDark: Story = {
+  args: {
+    title: "Primary Title",
+    text: "This is a primary text",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.LEFT,
+  },
+};
+DefaultTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// Text align Center
+export const TextAlignCenter: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+  },
+};
+
+// Text align Center Dark
+export const TextAlignCenterDark: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+  },
+};
+TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// Text align Right
+export const TextAlignRight: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.RIGHT,
+  },
+};
+
+// Text align RightDark
+export const TextAlignRightDark: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.RIGHT,
+  },
+};
+TextAlignRightDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 // Only Title story
 export const OnlyTitle: Story = {

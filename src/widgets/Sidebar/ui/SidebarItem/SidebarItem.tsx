@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 import React, { memo } from "react";
 import "./SidebarItem.css";
@@ -7,6 +6,8 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { AppLinkTheme } from "shared/ui/AppLink/appLinkConstants";
 import { ISidebarItemType } from "widgets/Sidebar/model/items";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "entities/User";
 
 interface ISidebarItemProps {
   item: ISidebarItemType;
@@ -17,6 +18,10 @@ interface ISidebarItemProps {
 export const SidebarItem: React.FC<ISidebarItemProps> = memo(
   ({ item, collapsed, className }) => {
     const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.authOnly && !isAuth) return null;
+
     return (
       <AppLink
         to={item.path}

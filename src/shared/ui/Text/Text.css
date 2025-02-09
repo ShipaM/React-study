@@ -1,3 +1,8 @@
+.text-block {
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   font: var(--font-l);
   color: var(--primary-color);
@@ -14,4 +19,16 @@
 
 .error .text {
   color: var(--red-dark);
+}
+
+.left {
+  align-items: start;
+}
+
+.right {
+  align-items: end;
+}
+
+.center {
+  align-items: center;
 }

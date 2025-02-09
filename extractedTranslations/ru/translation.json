@@ -1,6 +1,13 @@
 {
+  "": "",
   "ABOUT_PAGE": "ABOUT_PAGE",
+  "AGE": "AGE",
   "AN_UNEXPECTED_ERROR": "AN_UNEXPECTED_ERROR",
+  "AVATAR": "AVATAR",
+  "CANCEL": "CANCEL",
+  "CITY": "CITY",
+  "COUNTRY": "COUNTRY",
+  "CURRENCY": "CURRENCY",
   "EDIT": "EDIT",
   "ENTER": "ENTER",
   "ENTER_USERNAME": "ENTER_USERNAME",
@@ -9,6 +16,7 @@
   "FIRST_NAME": "FIRST_NAME",
   "LANGUAGE": "LANGUAGE",
   "LAST_NAME": "LAST_NAME",
+  "LOADING_ERROR": "LOADING_ERROR",
   "LOGIN": "LOGIN",
   "LOGOUT": "LOGOUT",
   "MAIN_PAGE": "MAIN_PAGE",
@@ -18,6 +26,8 @@
   "PROFILE": "PROFILE",
   "PROFILE_PAGE": "PROFILE_PAGE",
   "RELOAD_PAGE": "RELOAD_PAGE",
+  "SAVE": "SAVE",
+  "USERNAME": "USERNAME",
   "throw error": "throw error",
   "Войти": "Войти"
 }

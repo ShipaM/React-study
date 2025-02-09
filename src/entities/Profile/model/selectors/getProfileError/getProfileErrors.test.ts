@@ -7,7 +7,7 @@ describe("getProfileError", () => {
       profile: {
         error: "error",
         isLoading: false,
-        readonly: false,
+        readOnly: false,
       },
     };
 

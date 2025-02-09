@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 const Main: React.FC = () => {
   const { t } = useTranslation("main");
   return (
-    <div>
+    <div data-testid="main">
       {/* <BugButton /> */}
       {t("MAIN_PAGE")}
     </div>

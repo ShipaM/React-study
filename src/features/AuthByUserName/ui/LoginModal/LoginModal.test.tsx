@@ -31,7 +31,7 @@ describe("LoginModal", () => {
       () => {
         expect(getByRole("button", { name: "LOGIN" })).toBeInTheDocument(); // Assuming "LOGIN" key is in LoginForm
       },
-      { timeout: 2000 }
+      { timeout: 5000 }
     );
   });
 

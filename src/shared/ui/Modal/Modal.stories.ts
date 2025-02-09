@@ -24,7 +24,6 @@ export const ModalLight: Story = {
     isOpen: true,
   },
 };
-ModalLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const ModalDark: Story = {
   args: {

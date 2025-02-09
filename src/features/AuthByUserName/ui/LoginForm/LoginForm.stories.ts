@@ -23,6 +23,18 @@ export const DefaultLoginForm: Story = {
   args: {},
 };
 
+DefaultLoginForm.decorators = [
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {},
+  }),
+];
+
 // LoginForm with error
 export const LoginFormWithError: Story = {
   args: {},

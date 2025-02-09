@@ -3,5 +3,15 @@
   "PROFILE": "Profile",
   "EDIT": "Edit",
   "LAST_NAME": "Last name",
-  "FIRST_NAME": "First name"
+  "FIRST_NAME": "First name",
+  "LOADING_ERROR": "An error occurred while loading the profile.",
+  "RELOAD_PAGE": "Try refreshing the page.",
+  "CANCELL": "Cancel",
+  "SAVE": "Save",
+  "AGE": "Age",
+  "AVATAR": "Avatar",
+  "USERNAME": "User name",
+  "CITY": "City",
+  "CURRENCY": "Currency",
+  "COUNTRY": "Country"
 }

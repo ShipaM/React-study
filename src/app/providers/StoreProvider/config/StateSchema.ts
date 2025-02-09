@@ -54,6 +54,7 @@ export interface IThunkExtraArg {
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
+  state: StateSchema;
 }
 
 export type StaticReducers = typeof staticReducers;

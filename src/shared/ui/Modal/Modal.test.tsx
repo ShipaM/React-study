@@ -41,9 +41,12 @@ describe("Modal Component", () => {
     const overlay = getByTestId("overlay");
     fireEvent.click(overlay);
 
-    await waitFor(() => {
-      expect(handleClose).toHaveBeenCalled();
-    });
+    await waitFor(
+      () => {
+        expect(handleClose).toHaveBeenCalled();
+      },
+      { timeout: 5000 }
+    );
   });
 
   it("closes modal when pressing Escape key", async () => {

@@ -1,11 +1,10 @@
-import { StoryFn } from "@storybook/react";
+import { Decorator } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 
 // RouterDecorator for wrapping stories with Router
-export const RouterDecorator = (StoryComponent: StoryFn) => (
+export const RouterDecorator: Decorator = (Story) => (
   <BrowserRouter>
-    {/* @ts-expect-error: TypeScript cannot infer JSX component type properly */}
-    <StoryComponent />
+    <Story />
   </BrowserRouter>
 );

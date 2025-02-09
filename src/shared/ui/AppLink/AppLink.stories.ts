@@ -2,6 +2,7 @@ import { Theme } from "app/providers/ThemeProvider";
 import { AppLink } from "./AppLink";
 import { Meta, StoryObj } from "@storybook/react/*";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import { AppLinkTheme } from "./appLinkConstants";
 
 // Meta configuration for Storybook
@@ -11,6 +12,21 @@ const meta: Meta<typeof AppLink> = {
   parameters: {
     layout: "centered", // Center the component in the Storybook layout
   },
+  decorators: [
+    StoreDecorator({
+      loginForm: {
+        username: "",
+        password: "",
+        isLoading: false,
+      },
+      counter: { value: 0 },
+      user: {},
+      profile: {
+        isLoading: false,
+        readOnly: false,
+      },
+    }),
+  ],
   tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     theme: {

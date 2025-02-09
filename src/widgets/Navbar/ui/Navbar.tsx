@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import React, { memo, useCallback, useState } from "react";
@@ -62,3 +61,5 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     </div>
   );
 });
+
+Navbar.displayName = "Navbar";

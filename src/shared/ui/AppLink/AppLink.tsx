@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 import React, { memo } from "react";
 import "./AppLink.css";
 import { Link, LinkProps } from "react-router-dom";
@@ -25,3 +23,5 @@ export const AppLink: React.FC<IAppLink> = memo(
     );
   }
 );
+
+AppLink.displayName = "AppLink";

@@ -9,7 +9,10 @@ interface IPageLoaderProps {
 }
 
 export const PageLoader: React.FC<IPageLoaderProps> = ({ className }) => (
-  <div className={classNames("page-loader", {}, [className])}>
+  <div
+    data-testid="page-loader"
+    className={classNames("page-loader", {}, [className])}
+  >
     <Loader />
   </div>
 );

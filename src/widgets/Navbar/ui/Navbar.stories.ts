@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Navbar } from "./Navbar";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta: Meta<typeof Navbar> = {
   title: "widgets/Navbar",
@@ -10,6 +11,21 @@ const meta: Meta<typeof Navbar> = {
     layout: "centered", // Center the component in the preview
   },
   tags: ["autodocs"], // Enable auto documentation
+  decorators: [
+    StoreDecorator({
+      loginForm: {
+        username: "",
+        password: "",
+        isLoading: false,
+      },
+      counter: { value: 0 },
+      user: {},
+      profile: {
+        isLoading: false,
+        readOnly: false,
+      },
+    }),
+  ],
 };
 
 export default meta;

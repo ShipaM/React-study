@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+ 
 /* eslint-disable react/display-name */
 import { useTheme } from "app/providers/ThemeProvider";
 import React, { memo } from "react";

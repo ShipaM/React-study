@@ -1,6 +1,7 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { getProfileData } from "./getProfileData";
-import { Country, Currency } from "shared/const/common";
+import { Country } from "shared/const/common";
+import { Currency } from "entities/Currency/model/types/currency";
 
 describe("getProfileData", () => {
   test("should return expected result", () => {
@@ -18,7 +19,7 @@ describe("getProfileData", () => {
             "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
         },
         isLoading: false,
-        readonly: false,
+        readOnly: false,
       },
     };
 

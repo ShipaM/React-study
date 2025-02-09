@@ -18,6 +18,7 @@ const meta: Meta<typeof Button> = {
       options: [
         ButtonTheme.CLEAR,
         ButtonTheme.OUTLINE,
+        ButtonTheme.OUTLINE_RED,
         ButtonTheme.BACKGROUND,
         ButtonTheme.CLEAR_INVERTED,
         ButtonTheme.BACKGROUND_INVERTED,
@@ -74,6 +75,22 @@ export const OutlineDark: Story = {
   },
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// Story for a button with the "OUTLINE_RED" theme
+export const OutlineRedLight: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE_RED,
+  },
+};
+OutlineRedLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+// Story for a button with the "OUTLINE_RED" theme
+export const OutlineRedDark: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE_RED,
+  },
+};
+OutlineRedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 // Story for a button with the "BACKGROUND" theme
 export const BackgroundLight: Story = {

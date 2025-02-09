@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from "./Sidebar";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 // Meta information configuration for Storybook
 const meta: Meta<typeof Sidebar> = {
@@ -17,6 +18,21 @@ const meta: Meta<typeof Sidebar> = {
       description: "additional class",
     },
   },
+  decorators: [
+    StoreDecorator({
+      loginForm: {
+        username: "",
+        password: "",
+        isLoading: false,
+      },
+      counter: { value: 0 },
+      user: {},
+      profile: {
+        isLoading: false,
+        readOnly: false,
+      },
+    }),
+  ],
 };
 
 export default meta;

@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import React, { ButtonHTMLAttributes, memo } from "react";
 import "./Button.css";
@@ -40,3 +38,5 @@ export const Button: React.FC<IButtonProps> = memo(
     );
   }
 );
+
+Button.displayName = "Button";

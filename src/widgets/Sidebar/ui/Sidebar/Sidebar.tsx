@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 import { classNames } from "shared/lib/classNames/classNames";
 import "./Sidebar.css";
 import React, { memo, useMemo, useState } from "react";
@@ -52,3 +50,5 @@ export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
     </div>
   );
 });
+
+Sidebar.displayName = "Sidebar";
