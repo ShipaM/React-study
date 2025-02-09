@@ -13,5 +13,10 @@
   "USERNAME": "User name",
   "CITY": "City",
   "CURRENCY": "Currency",
-  "COUNTRY": "Country"
+  "COUNTRY": "Country",
+  "INCORRECT_AGE": "Incorrect age",
+  "INCORRECT_COUNTRY": "Incorrect country",
+  "INCORRECT_USER_DATA": "Incorrect user data",
+  "NO_DATA": "No data",
+  "SERVER_ERROR": "Server data"
 }

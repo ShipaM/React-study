@@ -3,11 +3,13 @@ import {
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
+  getProfileValidateErrors,
   profileActions,
   ProfileCard,
   profileReducer,
+  ValidateProfileError,
 } from "entities/Profile";
-import React, { useCallback, useEffect } from "react";
+import React, { memo, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
@@ -19,17 +21,29 @@ import { ProfileHeader } from "./ProfileHeader/ProfileHeader";
 import { getProfileReadonly } from "entities/Profile/model/selectors/grtProfileReadonly/getProfileReadonly";
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
+import { TextTheme } from "shared/ui/Text/textConstants";
+import { Text } from "shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
 const Profile: React.FC = () => {
-  // const { t } = useTranslation("profile");
+  const { t } = useTranslation("profile");
   const dispatch = useAppDispatch();
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readOnly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.INCORRECT_AGE]: t("INCORRECT_AGE"),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t("INCORRECT_COUNTRY"),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t("INCORRECT_USER_DATA"),
+    [ValidateProfileError.NO_DATA]: t("NO_DATA"),
+    [ValidateProfileError.SERVER_ERROR]: t("SERVER_ERROR"),
+  };
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -74,7 +88,7 @@ const Profile: React.FC = () => {
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ age: value }));
+      dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
     },
     [dispatch]
   );
@@ -94,6 +108,14 @@ const Profile: React.FC = () => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div data-testid="profile" className={classNames("profile", {}, [])}>
         <ProfileHeader />
+        {validateErrors?.length &&
+          validateErrors?.map((err) => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+              key={err}
+            />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
@@ -113,4 +135,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default memo(Profile);

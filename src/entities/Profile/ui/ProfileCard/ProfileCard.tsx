@@ -20,7 +20,7 @@ interface IProfileCardProps {
   isLoading?: boolean;
   onChangeFirstname?: (value?: string) => void;
   onChangeLastname?: (value?: string) => void;
-  onChangeAge?: (value?: string) => void;
+  onChangeAge?: (value: string) => void;
   onChangeUsername?: (value?: string) => void;
   onChangeCity?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
@@ -100,7 +100,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
           readOnly={readOnly}
         />
         <Input
-          value={data?.age ?? ""}
+          value={data?.age}
           placeholder={t("AGE")}
           className="profile-card-input"
           onChange={onChangeAge}

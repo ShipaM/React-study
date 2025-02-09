@@ -13,5 +13,10 @@
   "USERNAME": "Юзер",
   "CITY": "Місто",
   "CURRENCY": "Валюта",
-  "COUNTRY": "Країна"
+  "COUNTRY": "Країна",
+  "INCORRECT_AGE": "Неправильно вказан вік",
+  "INCORRECT_COUNTRY": "Неправильно вказана країна",
+  "INCORRECT_USER_DATA": "Неправильно вказані дані юзера",
+  "NO_DATA": "Немає даних",
+  "SERVER_ERROR": "Серверна помилка"
 }
