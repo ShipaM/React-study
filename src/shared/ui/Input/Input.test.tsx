@@ -3,6 +3,8 @@ import { Input } from "./Input";
 import React from "react";
 
 describe("InputComponent", () => {
+  const testId = "input";
+
   test("renders input with placeholder", () => {
     const { getByText } = render(<Input placeholder="Enter text" />);
 
@@ -28,7 +30,7 @@ describe("InputComponent", () => {
   });
 
   test("updates caret position on text input", () => {
-    render(<Input />);
+    render(<Input data-tesId={testId} />);
 
     const input = screen.getByTestId("input");
 
@@ -44,7 +46,7 @@ describe("InputComponent", () => {
   });
 
   test("handles focus and blur events", () => {
-    render(<Input />);
+    render(<Input data-tesId={testId} />);
 
     const input = screen.getByTestId("input");
 

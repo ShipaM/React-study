@@ -8,7 +8,7 @@ describe("getProfileValidateErrors", () => {
       profile: {
         isLoading: false,
         readOnly: false,
-        validateError: [
+        validateErrors: [
           ValidateProfileError.INCORRECT_COUNTRY,
           ValidateProfileError.SERVER_ERROR,
         ],

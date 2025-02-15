@@ -4,6 +4,8 @@ import { Select } from "./Select";
 const mockOnChange = jest.fn();
 
 describe("Select Component", () => {
+    const testId = "select";
+
   it("renders the select with options and label", () => {
     const options = [
       { value: "option1", content: "Option 1" },
@@ -27,7 +29,7 @@ describe("Select Component", () => {
   });
 
   // Test 2: It triggers the onChange callback when selecting a new value
-  it("calls the onChange function when a new option is selected", async() => {
+  it("calls the onChange function when a new option is selected", async () => {
     const options = [
       { value: "option1", content: "Option 1" },
       { value: "option2", content: "Option 2" },
@@ -39,6 +41,7 @@ describe("Select Component", () => {
         options={options}
         value="option1"
         onChange={mockOnChange}
+        data-tesId={testId}
       />
     );
 
@@ -48,12 +51,12 @@ describe("Select Component", () => {
     });
 
     // Assert that the mock function is called with the correct value
-   expect(mockOnChange).toHaveBeenCalledWith("option2");
-   expect(await screen.findByTestId("select")).not.toBeDisabled();
+    expect(mockOnChange).toHaveBeenCalledWith("option2");
+    expect(await screen.findByTestId("select")).not.toBeDisabled();
   });
 
   // Test 3: It does not allow selection change when readOnly is true
-  it("does not call onChange when readOnly is true", async() => {
+  it("does not call onChange when readOnly is true", async () => {
     const options = [
       { value: "option1", content: "Option 1" },
       { value: "option2", content: "Option 2" },
@@ -66,11 +69,12 @@ describe("Select Component", () => {
         value="option1"
         onChange={mockOnChange}
         readOnly={true}
+        data-tesId={testId}
       />
     );
 
-   // Assert that the mock function was not called
-   expect(await screen.findByTestId("select")).toBeDisabled()
+    // Assert that the mock function was not called
+    expect(await screen.findByTestId("select")).toBeDisabled();
     expect(mockOnChange).not.toHaveBeenCalled();
   });
 

@@ -5,10 +5,17 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta: Meta<typeof CountrySelect> = {
-  title: "entities/CurrencySelect",
+  title: "entities/CountrySelect",
   component: CountrySelect,
-  args: {
-    value: Country.Ukraine,
+  parameters: {
+    layout: "centered", // Center the component in the preview
+  },
+  tags: ["autodocs"],
+  argTypes: {
+    className: { control: "text" },
+    value: { control: "select", options: Object.values(Country) },
+    onChange: { action: "Changed country" },
+    readOnly: { control: "boolean" },
   },
 };
 
@@ -34,6 +41,5 @@ export const ReadOnly: Story = {
   args: {
     value: Country.Kazakhstan,
     readOnly: true,
-    onChange: undefined, // No onChange to simulate read-only behavior
   },
 };

@@ -9,7 +9,7 @@ import {
   profileReducer,
   ValidateProfileError,
 } from "entities/Profile";
-import React, { memo, useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
@@ -37,7 +37,7 @@ const Profile: React.FC = () => {
   const readOnly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
 
-  const validateErrorTranslates = {
+  const validateErrorsTranslates = {
     [ValidateProfileError.INCORRECT_AGE]: t("INCORRECT_AGE"),
     [ValidateProfileError.INCORRECT_COUNTRY]: t("INCORRECT_COUNTRY"),
     [ValidateProfileError.INCORRECT_USER_DATA]: t("INCORRECT_USER_DATA"),
@@ -101,7 +101,7 @@ const Profile: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== "storybook") dispatch(fetchProfileData());
   }, [dispatch]);
 
   return (
@@ -112,7 +112,7 @@ const Profile: React.FC = () => {
           validateErrors?.map((err) => (
             <Text
               theme={TextTheme.ERROR}
-              text={validateErrorTranslates[err]}
+              text={validateErrorsTranslates[err]}
               key={err}
             />
           ))}
@@ -135,4 +135,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default memo(Profile);
+export default Profile;

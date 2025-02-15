@@ -53,6 +53,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
   if (isLoading) {
     return (
       <div
+        data-testid="profile-card-loader"
         className={classNames("profile-card", {}, [
           "profile-loading",
           className,
@@ -87,6 +88,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         )}
         <Input
           value={data?.firstname ?? ""}
+          data-tesId="input-firstname"
           placeholder={t("FIRST_NAME")}
           className="profile-card-input"
           onChange={onChangeFirstname}
@@ -94,6 +96,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         />
         <Input
           value={data?.lastname ?? ""}
+          data-tesId="input-lastname"
           placeholder={t("LAST_NAME")}
           className="profile-card-input"
           onChange={onChangeLastname}
@@ -101,6 +104,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         />
         <Input
           value={data?.age}
+          data-tesId="input-age"
           placeholder={t("AGE")}
           className="profile-card-input"
           onChange={onChangeAge}
@@ -108,6 +112,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         />
         <Input
           value={data?.city ?? ""}
+          data-tesId="input-city"
           placeholder={t("CITY")}
           className="profile-card-input"
           onChange={onChangeCity}
@@ -115,6 +120,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         />
         <Input
           value={data?.username ?? ""}
+          data-tesId="input-username"
           placeholder={t("USERNAME")}
           className="profile-card-input"
           onChange={onChangeUsername}
@@ -122,6 +128,7 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         />
         <Input
           value={data?.avatar ?? ""}
+          data-tesId="input-avatar"
           placeholder={t("AVATAR")}
           className="profile-card-input"
           onChange={onChangeAvatar}
@@ -129,12 +136,14 @@ export const ProfileCard: React.FC<IProfileCardProps> = ({
         />
         <CurrencySelect
           className="profile-card-select"
+          data-tesId="select-currency"
           value={data?.currency}
           onChange={onChangeCurrency}
           readOnly={readOnly}
         />
         <CountrySelect
           className="profile-card-select"
+          data-tesId="select-country"
           value={data?.country}
           onChange={onChangeCountry}
           readOnly={readOnly}

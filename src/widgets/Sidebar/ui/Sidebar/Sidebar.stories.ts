@@ -18,21 +18,6 @@ const meta: Meta<typeof Sidebar> = {
       description: "additional class",
     },
   },
-  decorators: [
-    StoreDecorator({
-      loginForm: {
-        username: "",
-        password: "",
-        isLoading: false,
-      },
-      counter: { value: 0 },
-      user: {},
-      profile: {
-        isLoading: false,
-        readOnly: false,
-      },
-    }),
-  ],
 };
 
 export default meta;
@@ -43,7 +28,21 @@ type Story = StoryObj<typeof meta>;
 export const SidebarLight: Story = {
   args: {},
 };
-SidebarLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+SidebarLight.decorators = [
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {},
+    profile: {
+      isLoading: false,
+      readOnly: false,
+    },
+  }),
+];
 
 // Story for Sidebar with LIGHT theme
 export const SidebarLightCollapsed: Story = {
@@ -51,13 +50,42 @@ export const SidebarLightCollapsed: Story = {
     className: "collapsed",
   },
 };
-SidebarLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+SidebarLightCollapsed.decorators = [
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {},
+    profile: {
+      isLoading: false,
+      readOnly: false,
+    },
+  }),
+];
 
 // Story for Sidebar with DARK theme
 export const SidebarDark: Story = {
   args: {},
 };
-SidebarDark.decorators = [ThemeDecorator(Theme.DARK)];
+SidebarDark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {},
+    profile: {
+      isLoading: false,
+      readOnly: false,
+    },
+  }),
+];
 
 // Story for Sidebar with DARK theme
 export const SidebarDarkCollapsed: Story = {
@@ -65,4 +93,71 @@ export const SidebarDarkCollapsed: Story = {
     className: "collapsed",
   },
 };
-SidebarDarkCollapsed.decorators = [ThemeDecorator(Theme.DARK)];
+SidebarDarkCollapsed.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {},
+    profile: {
+      isLoading: false,
+      readOnly: false,
+    },
+  }),
+];
+
+// Story for Sidebar with DARK theme
+export const SidebarAuth: Story = {
+  args: {},
+};
+SidebarAuth.decorators = [
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {
+      authData: {
+        id: "",
+        username: "",
+        password: "",
+      },
+    },
+    profile: {
+      isLoading: true,
+      readOnly: false,
+    },
+  }),
+];
+// Story for Sidebar with DARK theme
+export const SidebarAuthDark: Story = {
+  args: {},
+};
+SidebarAuthDark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    loginForm: {
+      username: "",
+      password: "",
+      isLoading: false,
+    },
+    counter: { value: 0 },
+    user: {
+      authData: {
+        id: "",
+        username: "",
+        password: "",
+      },
+    },
+    profile: {
+      isLoading: true,
+      readOnly: false,
+    },
+  }),
+];

@@ -14,10 +14,19 @@ interface ISelectProps {
   value?: string;
   onChange?: (value: string) => void;
   readOnly?: boolean;
+  "data-tesId"?: string;
 }
 
 export const Select: React.FC<ISelectProps> = memo(
-  ({ className, label, options, value, readOnly, onChange }) => {
+  ({
+    className,
+    label,
+    options,
+    value,
+    readOnly,
+    onChange,
+    "data-tesId": testId,
+  }) => {
     const mods: Mods = {};
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -38,7 +47,7 @@ export const Select: React.FC<ISelectProps> = memo(
       <div className={classNames("wrapper", mods, [className])}>
         {label && <span className="label">{label}</span>}
         <select
-          data-testid="select"
+          data-testid={testId}
           disabled={readOnly}
           className="select"
           value={value}

@@ -30,7 +30,10 @@ export const ProfileHeader = () => {
 
   return (
     <div className={classNames("profile-header", {}, [])}>
-      <Text title={t("PROFILE")} />
+      <Text
+        title={t("PROFILE")}
+        className={classNames("profile-text", {}, [])}
+      />
 
       {readOnly ? (
         <Button
@@ -41,7 +44,7 @@ export const ProfileHeader = () => {
           {t("EDIT")}
         </Button>
       ) : (
-        <div className={classNames("profile-header", {}, [])}>
+        <div className={classNames("profile-buttons", {}, [])}>
           <Button
             theme={ButtonTheme.OUTLINE_RED}
             className="edit-btn"
