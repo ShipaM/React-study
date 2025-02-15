@@ -23,7 +23,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
               keyAsDefaultValue: true, // Use key as default value
             },
           ],
-        ],
+          options.isDev && require.resolve("react-refresh/babel"),
+        ].filter(Boolean),
       },
     },
   };

@@ -1,24 +1,44 @@
 import { useContext } from "react";
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext";
 
-interface IUseThemeResult {
+interface UseThemeResult {
   toggleTheme: () => void;
-  theme?: Theme;
+  theme: Theme;
 }
 
-// useContext — это хук в React, который позволяет использовать контекст внутри функционального компонента. Контекст в React позволяет передавать данные через дерево компонентов без необходимости явно передавать их через пропсы на каждом уровне.
-
-//Хук useContext используется для подписки на контекст в функциональных компонентах. Он принимает объект контекста, возвращаемый из createContext, и возвращает текущее значение контекста.
-
-export const useTheme = (): IUseThemeResult => {
+export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    // let newTheme: Theme;
+    // switch (theme) {
+    //   case Theme.DARK:
+    //     newTheme = Theme.LIGHT;
+    //     break;
+    //   case Theme.LIGHT:
+    //     newTheme = Theme.ORANGE;
+    //     break;
+    //   case Theme.ORANGE:
+    //     newTheme = Theme.DARK;
+    //     break;
+    //   default:
+    //     newTheme = Theme.LIGHT;
+    // }
+
+    const themeSwitcher: Record<Theme, Theme> = {
+      [Theme.DARK]: Theme.LIGHT,
+      [Theme.LIGHT]: Theme.ORANGE,
+      [Theme.ORANGE]: Theme.DARK,
+    };
+
+    const newTheme: Theme = themeSwitcher[theme as Theme] ?? Theme.LIGHT;
+
     setTheme?.(newTheme);
-    document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
-  return { theme: theme || Theme.LIGHT, toggleTheme };
-};
+  return {
+    theme: theme || Theme.LIGHT,
+    toggleTheme,
+  };
+}

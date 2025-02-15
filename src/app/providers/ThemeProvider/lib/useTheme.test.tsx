@@ -57,11 +57,11 @@ describe("useTheme hook", () => {
       result.current.toggleTheme();
     });
 
-    expect(mockSetTheme).toHaveBeenCalledWith(Theme.DARK);
+    expect(mockSetTheme).toHaveBeenCalledWith(Theme.ORANGE);
   });
 
   test("should toggle theme from DARK to LIGHT", () => {
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, Theme.DARK);
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, Theme.ORANGE);
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <ThemeContext.Provider
@@ -98,7 +98,7 @@ describe("useTheme hook", () => {
       result.current.toggleTheme();
     });
 
-    expect(mockSetTheme).toHaveBeenCalledWith(Theme.DARK);
-    expect(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)).toEqual(Theme.DARK);
+    expect(mockSetTheme).toHaveBeenCalledWith(Theme.ORANGE);
+    expect(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)).toEqual(Theme.ORANGE);
   });
 });
