@@ -13,6 +13,7 @@ const meta: Meta<typeof Select> = {
   tags: ["autodocs"], // Enable auto documentation
   argTypes: {
     onChange: { action: "changed" }, // Add action to capture onChange
+    className: { control: "text", description: "Custom class for styling" },
   },
 };
 

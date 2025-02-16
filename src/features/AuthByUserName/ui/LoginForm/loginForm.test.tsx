@@ -22,7 +22,7 @@ describe("LoginForm", () => {
             isLoading: false,
           },
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );
@@ -43,7 +43,7 @@ describe("LoginForm", () => {
             isLoading: false,
           },
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );
@@ -82,7 +82,7 @@ describe("LoginForm", () => {
             isLoading: false,
           },
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );
@@ -99,7 +99,7 @@ describe("LoginForm", () => {
       initialState: {
         loginForm: { username: "", password: "", isLoading: true },
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
@@ -116,7 +116,7 @@ describe("LoginForm", () => {
           error: "Error",
         },
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 

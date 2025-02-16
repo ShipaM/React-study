@@ -13,7 +13,7 @@ describe("SidebarItem", () => {
     componentRender(<SidebarItem item={mockItem} collapsed={false} />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
@@ -27,7 +27,7 @@ describe("SidebarItem", () => {
     componentRender(<SidebarItem item={mockItem} collapsed={true} />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
@@ -44,7 +44,7 @@ describe("SidebarItem", () => {
       {
         initialState: {
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );

@@ -9,7 +9,7 @@ describe("Counter", () => {
     componentRender(<Counter />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
@@ -20,7 +20,7 @@ describe("Counter", () => {
     componentRender(<Counter />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
@@ -32,7 +32,7 @@ describe("Counter", () => {
     componentRender(<Counter />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 

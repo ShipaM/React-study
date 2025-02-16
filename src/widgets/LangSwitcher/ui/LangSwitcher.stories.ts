@@ -18,6 +18,7 @@ const meta: Meta<typeof LangSwitcher> = {
     className: {
       control: "text", // Allows the user to input a custom class name
       defaultValue: "", // Default empty class name
+      description: "Custom class for styling",
     },
   },
   args: {

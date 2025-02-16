@@ -60,7 +60,7 @@ describe("Reducer Manager", () => {
       counter: { value: 0 },
       mockA: { value: 2 },
       mockB: { count: 0 },
-      user: {},
+      user: { _isInited: false },
     });
 
     state = reducerManager.reduce(state, { type: "INCREMENT_B" });
@@ -68,7 +68,7 @@ describe("Reducer Manager", () => {
       counter: { value: 0 },
       mockA: { value: 2 },
       mockB: { count: 1 },
-      user: {},
+      user: { _isInited: false },
     });
   });
 
@@ -81,7 +81,7 @@ describe("Reducer Manager", () => {
       counter: { value: 0 },
       mockA: { value: 2 },
       mockB: { count: 0 },
-      user: {},
+      user: { _isInited: false },
     });
 
     reducerManager.remove("mockA" as StateSchemaKey);
@@ -89,7 +89,7 @@ describe("Reducer Manager", () => {
     expect(state).toEqual({
       counter: { value: 0 },
       mockB: { count: 1 },
-      user: {},
+      user: {_isInited: false},
     });
   });
 });

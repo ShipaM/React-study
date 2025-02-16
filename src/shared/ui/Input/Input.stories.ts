@@ -8,10 +8,28 @@ const meta: Meta<typeof Input> = {
   component: Input,
   parameters: {
     layout: "centered", // Centers the component in Storybook's layout
+    actions: {
+      handles: ["change", "input"], // Listen for change/input actions
+    },
   },
   tags: ["autodocs"], // Enable auto documentation
   argTypes: {
-    onChange: { action: "changed" },
+    onChange: {
+      action: "changed",
+      description: "Triggered when input value changes",
+    },
+    className: {
+      control: "text",
+      description: "Custom class for styling the input component",
+    },
+    placeholder: {
+      control: "text",
+      description: "Text to display when the input is empty",
+    },
+    autofocus: {
+      control: "boolean",
+      description: "Whether the input should autofocus on page load",
+    },
   },
 };
 

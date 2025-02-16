@@ -18,7 +18,7 @@ describe("LoginModal", () => {
         initialState: {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );
@@ -58,7 +58,7 @@ describe("LoginModal", () => {
         initialState: {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );
@@ -84,7 +84,7 @@ describe("LoginModal", () => {
         initialState: {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
-          user: {},
+          user: { _isInited: false },
         },
       }
     );
@@ -113,7 +113,7 @@ describe("LoginModal", () => {
           error: "Error",
         },
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
     // Assertions

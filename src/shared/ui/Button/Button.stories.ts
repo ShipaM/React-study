@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { ButtonSize, ButtonTheme } from "./buttonConstants";
+import { within, expect } from "@storybook/test";
 
 // Meta information configuration for Storybook
 const meta: Meta<typeof Button> = {
@@ -23,17 +24,21 @@ const meta: Meta<typeof Button> = {
         ButtonTheme.CLEAR_INVERTED,
         ButtonTheme.BACKGROUND_INVERTED,
       ], // Available options for selecting the theme
+      description: "Button theme styles",
     },
     size: {
       control: "select",
       options: [ButtonSize.M, ButtonSize.L, ButtonSize.XL], // Available button sizes
+      description: "Button size options",
     },
     disabled: {
       control: "boolean", // Controller to check the disabled state
+      description: "Disables the button",
     },
     square: {
       control: "boolean", // Controller to check the square state
     },
+    className: { control: "text", description: "Custom class for styling" },
   },
   args: {
     children: "Button", // Default value for the button text
@@ -241,3 +246,14 @@ export const ClearLargeSquareDark: Story = {
   },
 };
 ClearLargeSquareDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// ✅ Play function for button interaction test
+export const WithPlay: Story = {
+  args: { theme: ButtonTheme.OUTLINE, children: "Click Me" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.findByRole("button");
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent("Click Me");
+  },
+};

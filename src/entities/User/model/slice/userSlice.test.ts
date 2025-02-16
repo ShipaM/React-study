@@ -23,12 +23,13 @@ describe("userSlice", () => {
     expect(state.authData).toEqual(user);
   });
 
-    test("should remove auth data on logout", () => {
-      const initialState = {
-        authData: { id: "1", username: "testUser", password: "123" },
-      };
-      const state = userReducer(initialState, userActions.logout());
-      expect(state.authData).toBeUndefined();
-      expect(localStorage.getItem(USER_LOCALSTORAGE_KEY)).toBeNull();
-    });
+  test("should remove auth data on logout", () => {
+    const initialState = {
+      authData: { id: "1", username: "testUser", password: "123" },
+      _isInited: false,
+    };
+    const state = userReducer(initialState, userActions.logout());
+    expect(state.authData).toBeUndefined();
+    expect(localStorage.getItem(USER_LOCALSTORAGE_KEY)).toBeNull();
+  });
 });

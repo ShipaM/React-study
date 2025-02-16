@@ -41,6 +41,7 @@ const meta: Meta<typeof AppLink> = {
       control: "text", // Customizable 'to' prop for the Link
       defaultValue: "/", // Default link URL
     },
+    className: { control: "text", description: "Custom class for styling" },
   },
   args: {
     theme: AppLinkTheme.PRIMARY, // Default theme

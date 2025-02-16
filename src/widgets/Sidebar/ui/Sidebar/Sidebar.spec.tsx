@@ -8,7 +8,7 @@ describe("Sidebar", () => {
     componentRender(<Sidebar />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
     // Test if the sidebar is rendered (using the data-testid attribute)
@@ -22,7 +22,7 @@ describe("Sidebar", () => {
     componentRender(<Sidebar />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
@@ -49,7 +49,7 @@ describe("Sidebar", () => {
     componentRender(<Sidebar />, {
       initialState: {
         counter: { value: 10 },
-        user: {},
+        user: { _isInited: false },
       },
     });
 
