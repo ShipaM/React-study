@@ -1,4 +1,5 @@
 import {
+  fetchProfileData,
   profileActions,
   profileReducer,
   ProfileSchema,
@@ -16,6 +17,14 @@ const data = {
   firstname: "asd",
   city: "asf",
   currency: Currency.USD,
+};
+
+const initialState: ProfileSchema = {
+  isLoading: false,
+  readOnly: true,
+  data: undefined,
+  error: undefined,
+  form: undefined,
 };
 
 describe("profileSlice.test", () => {
@@ -85,5 +94,48 @@ describe("profileSlice.test", () => {
       form: data,
       data,
     });
+  });
+
+  it("should handle updateProfileData.rejected", () => {
+    const error = "Invalid credentials";
+
+    const nextState = profileReducer(initialState, {
+      type: updateProfileData.rejected.type,
+      payload: error,
+    });
+
+    expect(nextState.isLoading).toBe(false);
+    expect(nextState.validateErrors).toBe(error);
+  });
+
+  it("should handle fetchProfileData.pending", () => {
+    const nextState = profileReducer(
+      initialState,
+      fetchProfileData.pending as never
+    );
+    expect(nextState.isLoading).toBe(true);
+    expect(nextState.error).toBeUndefined();
+  });
+
+  it("should handle fetchProfileData.fulfilled", () => {
+    const nextState = profileReducer(
+      initialState,
+      fetchProfileData.fulfilled(data, "")
+    );
+
+    expect(nextState.isLoading).toBe(false);
+    expect(nextState.data).toEqual(data);
+    expect(nextState.form).toEqual(data);
+  });
+
+  it("should handle fetchProfileData.rejected", () => {
+    const error = "Failed to fetch profile";
+    const nextState = profileReducer(initialState, {
+      type: fetchProfileData.rejected.type,
+      payload: error,
+    });
+
+    expect(nextState.isLoading).toBe(false);
+    expect(nextState.error).toBe(error);
   });
 });

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { AlignItems, TextTheme } from "./textConstants";
+import { AlignItems, TextSize, TextTheme } from "./textConstants";
 import { Theme } from "app/providers/ThemeProvider";
 
 // Meta configuration for Storybook
@@ -21,6 +21,10 @@ const meta: Meta<typeof Text> = {
       control: "select",
       options: [AlignItems.CENTER, AlignItems.LEFT, AlignItems.RIGHT],
     },
+    size: {
+      control: "select",
+      options: [TextSize.M, TextSize.L],
+    },
   },
 };
 
@@ -35,6 +39,7 @@ export const DefaultText: Story = {
     text: "This is a primary text",
     theme: TextTheme.PRIMARY,
     alignItems: AlignItems.LEFT,
+    size: TextSize.M,
   },
 };
 
@@ -45,6 +50,7 @@ export const DefaultTextDark: Story = {
     text: "This is a primary text",
     theme: TextTheme.PRIMARY,
     alignItems: AlignItems.LEFT,
+    size: TextSize.L,
   },
 };
 DefaultTextDark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -68,8 +74,51 @@ export const TextAlignCenterDark: Story = {
     alignItems: AlignItems.CENTER,
   },
 };
-TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+// Text size L
+export const TextSizeL: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.L,
+  },
+};
+
+// Text size L Dark
+export const TextSizeLDark: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.L,
+  },
+};
+TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
+// Text size L
+export const TextSizeM: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.M,
+  },
+};
+
+// Text size L Dark
+export const TextSizeMDark: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.M,
+  },
+};
+TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
 // Text align Right
 export const TextAlignRight: Story = {
   args: {

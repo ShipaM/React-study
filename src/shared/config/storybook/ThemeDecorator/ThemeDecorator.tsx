@@ -9,6 +9,8 @@ export const ThemeDecorator = (theme: Theme): Decorator => {
         className={`app ${theme}`}
         style={{
           width: "100vw",
+          maxWidth: "1000px",
+          padding: "20px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

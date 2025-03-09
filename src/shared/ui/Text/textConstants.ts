@@ -3,6 +3,11 @@ export enum TextTheme {
   ERROR = "error",
 }
 
+export enum TextSize {
+  M = "size-m",
+  L = "size-l",
+}
+
 export enum AlignItems {
   RIGHT = "right",
   LEFT = "left",

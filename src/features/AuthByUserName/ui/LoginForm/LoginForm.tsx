@@ -7,7 +7,7 @@ import "./LoginForm.css";
 import { Input } from "shared/ui/Input/Input";
 import { useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
-import { loginByUsername } from "features/AuthByUserName/model/services/loginByUserName/loginByUsername";
+import { loginByUsername } from "../../model/services/loginByUserName/loginByUsername";
 import { TextTheme } from "shared/ui/Text/textConstants";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
