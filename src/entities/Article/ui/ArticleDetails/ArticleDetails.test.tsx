@@ -40,6 +40,7 @@ describe("ArticleDetails", () => {
         },
       },
     });
+
     expect(getByText("ARTICLE_ERROR")).toBeInTheDocument();
   });
 
