@@ -4,5 +4,7 @@
   "ARTICLE_PAGE": "Article page",
   "ARTICLES": "Articles",
   "ARTICLE_NOT_FOUND": "Article not found",
-  "ARTICLE_ERROR": "There was an error loading the article."
+  "ARTICLE_ERROR": "There was an error loading the article.",
+  "COMMENTS": "Comments",
+  "NO_COMMENTS": "No comments"
 }

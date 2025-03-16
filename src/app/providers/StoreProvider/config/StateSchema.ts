@@ -12,6 +12,7 @@ import { LoginSchema } from "features/AuthByUserName";
 import { NavigateFunction } from "react-router-dom";
 import { staticReducers } from "./store";
 import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailsCommentSchema } from "pages/ArticleDeteilsPage";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -21,6 +22,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

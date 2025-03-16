@@ -6,11 +6,13 @@ import { profileReducer } from "entities/Profile";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { BrowserRouter } from "react-router-dom";
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
+import { articleDetailsCommentsReducer } from "pages/ArticleDeteilsPage/model/slices/articleDetailsCommentsSlice";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
+  articleDetailsComments: articleDetailsCommentsReducer,
 };
 
 export const StoreDecorator =

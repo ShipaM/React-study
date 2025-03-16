@@ -1,0 +1,19 @@
+.comment-card {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  margin: 10px 0;
+}
+
+.comment-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-card-avatar {
+  margin: 0;
+}
+
+.comment-card-text {
+  margin: 0 10px;
+}
