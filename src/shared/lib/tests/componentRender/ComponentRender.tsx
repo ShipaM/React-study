@@ -11,6 +11,8 @@ import { LoginSchema } from "features/AuthByUserName/model/types/LoginSchema";
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
 import { profileReducer, ProfileSchema } from "entities/Profile";
 import { ArticleDetailsSchema } from "entities/Article";
+import { addCommentFormReducer } from "features/AddCommentForm/model/slices/addCommentFormSlice";
+import { AddCommentFormSchema } from "features/AddCommentForm";
 
 export interface componentRenderOptions {
   route?: string;
@@ -23,6 +25,9 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   profile: profileReducer as Reducer<ProfileSchema | undefined>,
   articleDetails: articleDetailsReducer as Reducer<
     ArticleDetailsSchema | undefined
+  >,
+  addCommentForm: addCommentFormReducer as Reducer<
+    AddCommentFormSchema | undefined
   >,
 };
 

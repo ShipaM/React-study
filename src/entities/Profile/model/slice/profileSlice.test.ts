@@ -120,7 +120,7 @@ describe("profileSlice.test", () => {
   it("should handle fetchProfileData.fulfilled", () => {
     const nextState = profileReducer(
       initialState,
-      fetchProfileData.fulfilled(data, "")
+      fetchProfileData.fulfilled(data, "1", "")
     );
 
     expect(nextState.isLoading).toBe(false);

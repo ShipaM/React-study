@@ -24,12 +24,14 @@ import { Currency } from "entities/Currency";
 import { TextTheme } from "shared/ui/Text/textConstants";
 import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
 const Profile: React.FC = () => {
   const { t } = useTranslation("profile");
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -101,8 +103,8 @@ const Profile: React.FC = () => {
   );
 
   useEffect(() => {
-    if (__PROJECT__ !== "storybook") dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (__PROJECT__ !== "storybook" && id) dispatch(fetchProfileData(id));
+  }, [dispatch, id]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

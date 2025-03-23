@@ -5,10 +5,12 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Text } from "shared/ui/Text/Text";
 import "./CommentCard.css";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routerConfig/routeConfig";
 
 interface CommentCardProps {
   className?: string;
-  comment: Comment;
+  comment?: Comment;
   isLoading?: boolean;
 }
 
@@ -16,7 +18,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
   ({ className, comment, isLoading }) => {
     if (isLoading) {
       return (
-        <div className={classNames("comment-card", {}, [className])}>
+        <div className={classNames("comment-card", {}, [className, "loading"])}>
           <div className="comment-card-header">
             <Skeleton
               width={30}
@@ -31,9 +33,14 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
       );
     }
 
+    if (!comment) return null;
+
     return (
       <div className={classNames("comment-card", {}, [className])}>
-        <div className="comment-card-header">
+        <AppLink
+          className="comment-card-header"
+          to={`${RoutePath.profile}${comment.user.id}`}
+        >
           {comment.user.avatar ? (
             <Avatar
               size={30}
@@ -42,7 +49,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
             />
           ) : null}
           <Text title={comment.user.username} className="comment-card-text" />
-        </div>
+        </AppLink>
         <Text text={comment.text} />
       </div>
     );

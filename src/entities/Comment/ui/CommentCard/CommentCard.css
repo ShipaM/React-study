@@ -17,3 +17,7 @@
 .comment-card-text {
   margin: 0 10px;
 }
+
+.loading {
+  border: none;
+}

@@ -7,12 +7,14 @@ import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicM
 import { BrowserRouter } from "react-router-dom";
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
 import { articleDetailsCommentsReducer } from "pages/ArticleDeteilsPage/model/slices/articleDetailsCommentsSlice";
+import { addCommentFormReducer } from "features/AddCommentForm/model/slices/addCommentFormSlice";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
+  addCommentForm: addCommentFormReducer,
 };
 
 export const StoreDecorator =

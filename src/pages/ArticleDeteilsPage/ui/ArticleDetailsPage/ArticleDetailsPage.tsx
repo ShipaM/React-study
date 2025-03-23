@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./ArticleDetailsPage.css";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text } from "shared/ui/Text/Text";
@@ -19,6 +19,8 @@ import { getArticleCommentsIsLoaading } from "../../model/selectors/comment";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { fetchCommentsByArticleId } from "pages/ArticleDeteilsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { AddCommentFormAsync } from "features/AddCommentForm";
+import { addCommentForArticle } from "pages/ArticleDeteilsPage/model/services/addCommentForArticle/addCommentForArticle";
 
 interface IArticleDetailsPageProps {
   className?: string;
@@ -37,6 +39,13 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
   const dispatch = useAppDispatch();
   const commentsIsLoading = useSelector(getArticleCommentsIsLoaading);
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -47,11 +56,13 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
         {t("ARTICLE_NOT_FOUND")}
       </div>
     );
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames("article-details-page", {}, [className])}>
         <ArticleDetails id={id} />
         <Text title={t("COMMENTS")} />
+        <AddCommentFormAsync onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

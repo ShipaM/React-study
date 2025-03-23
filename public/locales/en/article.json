@@ -6,5 +6,7 @@
   "ARTICLE_NOT_FOUND": "Article not found",
   "ARTICLE_ERROR": "There was an error loading the article.",
   "COMMENTS": "Comments",
-  "NO_COMMENTS": "No comments"
+  "NO_COMMENTS": "No comments",
+  "ENTER_TEXT": "Enter text of comment",
+  "SEND": "Send"
 }
