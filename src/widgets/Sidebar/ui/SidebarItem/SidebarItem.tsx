@@ -4,13 +4,13 @@ import "./SidebarItem.css";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLinkTheme } from "shared/ui/AppLink/appLinkConstants";
-import { ISidebarItemType } from "widgets/Sidebar/model/items";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "entities/User";
+import { SidebarItemType } from "widgets/Sidebar/model/types/sidebar";
 
 interface ISidebarItemProps {
-  item: ISidebarItemType;
+  item: SidebarItemType;
   collapsed: boolean;
   className?: string;
 }

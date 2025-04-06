@@ -16,3 +16,7 @@
 .btn-wrapper {
   margin-left: auto;
 }
+
+.profile-buttons {
+  display: flex;
+}
