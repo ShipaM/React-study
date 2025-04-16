@@ -30,7 +30,7 @@ describe("InputComponent", () => {
   });
 
   test("updates caret position on text input", () => {
-    render(<Input data-tesId={testId} />);
+    render(<Input data-testid={testId} />);
 
     const input = screen.getByTestId("input");
 
@@ -46,7 +46,7 @@ describe("InputComponent", () => {
   });
 
   test("handles focus and blur events", () => {
-    render(<Input data-tesId={testId} />);
+    render(<Input data-testid={testId} />);
 
     const input = screen.getByTestId("input");
 

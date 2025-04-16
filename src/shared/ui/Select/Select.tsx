@@ -14,7 +14,7 @@ interface ISelectProps {
   value?: string;
   onChange?: (value: string) => void;
   readOnly?: boolean;
-  "data-tesId"?: string;
+  "data-testid"?: string;
 }
 
 export const Select: React.FC<ISelectProps> = memo(
@@ -25,7 +25,7 @@ export const Select: React.FC<ISelectProps> = memo(
     value,
     readOnly,
     onChange,
-    "data-tesId": testId,
+    "data-testid": testId,
   }) => {
     const mods: Mods = {};
 

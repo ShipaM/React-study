@@ -5,8 +5,8 @@ import userEvent from "@testing-library/user-event";
 
 const mockDispatch = jest.fn();
 
-jest.mock("shared/lib/hooks/useAppDispatch", () => ({
-  ...jest.requireActual("shared/lib/hooks/useAppDispatch"),
+jest.mock("shared/lib/hooks/useAppDispatch/useAppDispatch", () => ({
+  ...jest.requireActual("shared/lib/hooks/useAppDispatch/useAppDispatch"),
   useAppDispatch: () => mockDispatch,
 }));
 

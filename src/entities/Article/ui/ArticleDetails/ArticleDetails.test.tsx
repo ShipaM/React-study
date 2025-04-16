@@ -4,8 +4,8 @@ import { Article, ArticleBlockType } from "entities/Article/model/type/article";
 
 const mockDispatch = jest.fn();
 
-jest.mock("shared/lib/hooks/useAppDispatch", () => ({
-  ...jest.requireActual("shared/lib/hooks/useAppDispatch"),
+jest.mock("shared/lib/hooks/useAppDispatch/useAppDispatch", () => ({
+  ...jest.requireActual("shared/lib/hooks/useAppDispatch/useAppDispatch"),
   useAppDispatch: () => mockDispatch,
 }));
 

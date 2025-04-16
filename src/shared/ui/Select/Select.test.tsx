@@ -4,7 +4,7 @@ import { Select } from "./Select";
 const mockOnChange = jest.fn();
 
 describe("Select Component", () => {
-    const testId = "select";
+  const testId = "select";
 
   it("renders the select with options and label", () => {
     const options = [
@@ -41,7 +41,7 @@ describe("Select Component", () => {
         options={options}
         value="option1"
         onChange={mockOnChange}
-        data-tesId={testId}
+        data-testid={testId}
       />
     );
 
@@ -69,7 +69,7 @@ describe("Select Component", () => {
         value="option1"
         onChange={mockOnChange}
         readOnly={true}
-        data-tesId={testId}
+        data-testid={testId}
       />
     );
 

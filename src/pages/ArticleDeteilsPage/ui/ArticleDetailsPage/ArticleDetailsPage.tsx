@@ -17,10 +17,12 @@ import {
 import { useSelector } from "react-redux";
 import { getArticleCommentsIsLoaading } from "../../model/selectors/comment";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { fetchCommentsByArticleId } from "pages/ArticleDeteilsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AddCommentFormAsync } from "features/AddCommentForm";
-import { addCommentForArticle } from "pages/ArticleDeteilsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
+import { Button } from "shared/ui/Button/Button";
+import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 
 interface IArticleDetailsPageProps {
   className?: string;
@@ -60,6 +62,12 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames("article-details-page", {}, [className])}>
+        <Button
+          theme={ButtonTheme.OUTLINE}
+          onClick={() => window.history.back()}
+        >
+          {t("BACK_TO_ARTICLES")}
+        </Button>
         <ArticleDetails id={id} />
         <Text title={t("COMMENTS")} />
         <AddCommentFormAsync onSendComment={onSendComment} />

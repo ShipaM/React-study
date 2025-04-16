@@ -1,3 +1,5 @@
+import { User } from "entities/User";
+
 export enum ArticleBlockType {
   CODE = "CODE",
   IMAGE = "IMAGE",
@@ -37,10 +39,18 @@ export enum ArticleType {
   ECONOMICS = "ECONOMICS",
 }
 
+export const ArticleView = {
+  BIG: "big",
+  SMALL: "small",
+} as const;
+
+export type ArticleViewValue = ValueOf<typeof ArticleView>;
+
 export interface Article {
   id: string;
   title: string;
   subtitle: string;
+  user: User;
   img: string;
   views: number;
   createdAt: string;

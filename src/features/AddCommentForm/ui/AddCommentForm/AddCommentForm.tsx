@@ -6,7 +6,7 @@ import { Button } from "shared/ui/Button/Button";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import "./AddCommentForm.css";
 import {
   addCommentFormActions,
@@ -51,7 +51,7 @@ const AddCommentForm: React.FC<AddCommentProps> = ({
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames("add-comment-form", {}, [className])}>
         <Input
-          data-tesId="add-comment-form-input"
+          data-testid="add-comment-form-input"
           className="input"
           placeholder={t("ENTER_TEXT")}
           value={text}

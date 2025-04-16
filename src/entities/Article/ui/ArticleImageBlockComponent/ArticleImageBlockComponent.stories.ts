@@ -8,7 +8,7 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta: Meta<typeof ArticleImageBlockComponent> = {
-  title: "entities/ArticleImageBlockComponent",
+  title: "entities/Article/ArticleImageBlockComponent",
   component: ArticleImageBlockComponent,
   parameters: {
     layout: "centered", // Center the component in the Storybook layout

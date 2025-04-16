@@ -15,3 +15,5 @@ declare const __PROJECT__: "storybook" | "jest" | "frontend";
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
+
+type ValueOf<T> = T[keyof T];

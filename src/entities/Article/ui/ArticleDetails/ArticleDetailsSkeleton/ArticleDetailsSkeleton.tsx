@@ -5,7 +5,7 @@ export const ArticleDetailsSkeleton: React.FC = () => {
   return (
     <div
       className="article-details-skeleton"
-      data-testId="article-details-skeleton"
+      data-testid="article-details-skeleton"
     >
       <Skeleton className="avatar" width={200} height={200} border={"50%"} />
       <Skeleton className="title" width={300} height={32} />

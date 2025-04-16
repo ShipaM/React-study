@@ -1,0 +1,105 @@
+.small {
+  width: 230px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.small .image-wrapper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.small .article-list-card-date {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.small .article-list-card:hover {
+  opacity: 0.8;
+  transform: scale(1.01);
+}
+
+.big .article-list-card-date {
+  margin-left: auto;
+}
+
+.small:hover .article-list-card-date {
+  display: block;
+}
+
+.small .article-list-card-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.small .article-list-card-types p {
+  width: 115px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small .info-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.small .article-list-card-views {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.small .article-list-card-title {
+  margin-top: 8px;
+}
+
+.small .article-list-card-title p {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.big .article-list-card-views {
+  margin-left: auto;
+}
+
+.big .article-list-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.big .article-list-card-user-name {
+  margin-left: 8px;
+}
+
+.big .article-list-card-avatar {
+  margin: 0;
+}
+
+.big .article-list-card-title {
+  margin-top: 8px;
+}
+
+.big .article-img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  margin: 16px 0;
+}
+
+.big .footer {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.big .article-text-block {
+  max-height: 200px;
+  overflow-y: hidden;
+}

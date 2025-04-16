@@ -10,7 +10,7 @@ import "./Input.css";
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange" | "readOnly" | "data-testId"
+  "value" | "onChange" | "readOnly" | "data-testid"
 >;
 
 interface InputProps extends HTMLInputProps {
@@ -19,7 +19,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   autofocus?: boolean;
   readOnly?: boolean;
-  "data-tesId"?: string;
+  "data-testid"?: string;
 }
 
 export const Input: React.FC<InputProps> = memo(
@@ -31,7 +31,7 @@ export const Input: React.FC<InputProps> = memo(
     placeholder,
     autofocus,
     readOnly,
-    "data-tesId": testId,
+    "data-testid": testId,
     ...otherProps
   }) => {
     const ref = useRef<HTMLInputElement>(null);
