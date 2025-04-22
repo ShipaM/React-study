@@ -14,6 +14,7 @@ import { staticReducers } from "./store";
 import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentSchema } from "pages/ArticleDeteilsPage";
 import { AddCommentFormSchema } from "features/AddCommentForm";
+import { ArticlesPageSchema } from "pages/ArticlesPage";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -25,6 +26,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentSchema;
   addCommentForm?: AddCommentFormSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -40,6 +42,7 @@ export interface ReducerManager {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    articlesPage?: ArticlesPageSchema;
   };
   // reduce: (
   //   state: StateSchema,

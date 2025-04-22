@@ -13,6 +13,10 @@ import { profileReducer, ProfileSchema } from "entities/Profile";
 import { ArticleDetailsSchema } from "entities/Article";
 import { addCommentFormReducer } from "features/AddCommentForm/model/slices/addCommentFormSlice";
 import { AddCommentFormSchema } from "features/AddCommentForm";
+import { articlePageReducer } from "pages/ArticlesPage/model/slices/articlePageSlice";
+import { ArticlesPageSchema } from "pages/ArticlesPage";
+import { articleDetailsCommentsReducer } from "pages/ArticleDeteilsPage/model/slices/articleDetailsCommentsSlice";
+import { ArticleDetailsCommentSchema } from "pages/ArticleDeteilsPage";
 
 export interface componentRenderOptions {
   route?: string;
@@ -28,6 +32,10 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   >,
   addCommentForm: addCommentFormReducer as Reducer<
     AddCommentFormSchema | undefined
+  >,
+  articlesPage: articlePageReducer as Reducer<ArticlesPageSchema | undefined>,
+  articleDetailsComments: articleDetailsCommentsReducer as Reducer<
+    ArticleDetailsCommentSchema | undefined
   >,
 };
 

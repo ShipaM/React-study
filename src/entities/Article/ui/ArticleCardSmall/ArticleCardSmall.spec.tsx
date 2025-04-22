@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import { ArticleCardSmall } from "./ArticleCardSmall";
 import React from "react";
 import { ArticleView } from "entities/Article/model/type/article";
@@ -7,11 +7,14 @@ import { componentRender } from "shared/lib/tests/componentRender/ComponentRende
 
 describe("ArticleCardBig", () => {
   it("renders correctly with all props", () => {
+    const onOpenArticle = jest.fn();
+
     componentRender(
       <ArticleCardSmall
         className="test-class"
         article={articleListItem}
         view={ArticleView.SMALL}
+        onOpenArticle={onOpenArticle}
       />,
       {
         initialState: {
@@ -26,8 +29,22 @@ describe("ArticleCardBig", () => {
       }
     );
 
-    expect(screen.getByTestId("article-card-small")).toBeInTheDocument();
+    const cards = screen.getAllByTestId("article-card-small");
+    fireEvent.click(cards[0]);
+    fireEvent.click(cards[1]);
+
+    expect(cards.length).toBeGreaterThan(0);
+
+    cards.forEach((card) => {
+      fireEvent.click(card);
+
+      expect(card).toBeInTheDocument();
+      expect(onOpenArticle).toHaveBeenCalled();
+    });
+
     expect(screen.getByText("Sample title")).toBeInTheDocument();
-    expect(screen.getByText("26.02.2022")).toBeInTheDocument();
+    expect(screen.getAllByText("26.02.2022").length).toBeGreaterThan(0);
+    expect(cards).toHaveLength(2);
+    expect(onOpenArticle).toHaveBeenCalledTimes(2);
   });
 });

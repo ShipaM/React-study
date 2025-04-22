@@ -26,7 +26,7 @@
   margin-left: auto;
 }
 
-.small:hover .article-list-card-date {
+.small:hover .article-list-card:hover .article-list-card-date {
   display: block;
 }
 

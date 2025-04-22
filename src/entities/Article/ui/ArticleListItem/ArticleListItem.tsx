@@ -61,7 +61,13 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = memo(
       );
     }
 
-    return <ArticleCardSmall article={article} view={view} />;
+    return (
+      <ArticleCardSmall
+        article={article}
+        view={view}
+        onOpenArticle={onOpenArticle}
+      />
+    );
   }
 );
 

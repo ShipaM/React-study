@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
 import { articleDetailsCommentsReducer } from "pages/ArticleDeteilsPage/model/slices/articleDetailsCommentsSlice";
 import { addCommentFormReducer } from "features/AddCommentForm/model/slices/addCommentFormSlice";
+import { articlePageReducer } from "pages/ArticlesPage/model/slices/articlePageSlice";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
@@ -15,6 +16,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
   addCommentForm: addCommentFormReducer,
+  articlesPage: articlePageReducer, 
 };
 
 export const StoreDecorator =

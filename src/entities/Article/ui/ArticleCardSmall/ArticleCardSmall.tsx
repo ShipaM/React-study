@@ -10,15 +10,20 @@ type ArticleListItemProps = {
   className?: string;
   article: Article;
   view?: ArticleViewValue;
+  onOpenArticle: () => void;
 };
 export const ArticleCardSmall: React.FC<ArticleListItemProps> = memo(
-  ({ className, article, view }) => {
+  ({ className, article, view, onOpenArticle }) => {
     return (
       <div
         data-testid="article-card-small"
         className={classNames("article-list-item", {}, [className, view])}
       >
-        <Card className="article-list-card">
+        <Card
+          className="article-list-card"
+          onClick={onOpenArticle}
+          data-testid="article-card-small"
+        >
           <div className="image-wrapper">
             <img
               src={article.img}

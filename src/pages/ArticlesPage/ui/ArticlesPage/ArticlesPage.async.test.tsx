@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { Suspense } from "react";
 import { ArticlesAsyncPage } from "./ArticlesPage.async";
 import { MemoryRouter } from "react-router-dom";
+import { StoreProvider } from "app/providers/StoreProvider";
 
 describe("ArticlesAsyncPage", () => {
   it("should render the fallback and then load the component", async () => {
@@ -9,9 +10,11 @@ describe("ArticlesAsyncPage", () => {
 
     render(
       <MemoryRouter>
-        <Suspense fallback={<div>{fallbackText}</div>}>
-          <ArticlesAsyncPage />
-        </Suspense>
+        <StoreProvider>
+          <Suspense fallback={<div>{fallbackText}</div>}>
+            <ArticlesAsyncPage />
+          </Suspense>
+        </StoreProvider>
       </MemoryRouter>
     );
 

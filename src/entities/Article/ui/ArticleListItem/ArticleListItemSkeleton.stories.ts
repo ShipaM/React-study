@@ -6,6 +6,9 @@ const meta: Meta<typeof ArticleListItemSkeleton> = {
   title: "entities/Article/ArticleListItemSkeleton",
   component: ArticleListItemSkeleton,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered", // Center the component in the Storybook layout
+  },
   args: {
     className: "",
   },
