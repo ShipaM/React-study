@@ -2,6 +2,9 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageError,
   getArticlesPageView,
+  getArticlesPageNum,
+  getArticlesPageLimit,
+  getArticlesPageHasMore,
 } from "./articlesPageSelectors";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleView } from "entities/Article/model/type/article";
@@ -68,5 +71,59 @@ describe("getArticlesPage selectors", () => {
       const state = {} as StateSchema;
       expect(getArticlesPageView(state)).toBe(ArticleView.SMALL);
     });
+  });
+
+  it("returns correct page number", () => {
+    const state = {
+      articlesPage: {
+        page: 3,
+        limit: 10,
+        hasMore: true,
+      },
+    } as StateSchema;
+    expect(getArticlesPageNum(state)).toBe(3);
+  });
+
+  it("defaults to page 1 when undefined", () => {
+    const state = {} as StateSchema;
+    expect(getArticlesPageNum(state)).toBe(1);
+  });
+
+  it("returns correct page limit", () => {
+    const state = {
+      articlesPage: {
+        page: 1,
+        limit: 15,
+        hasMore: false,
+      },
+    } as StateSchema;
+    expect(getArticlesPageLimit(state)).toBe(15);
+  });
+
+  it("defaults to limit 9 when undefined", () => {
+    const state = {} as StateSchema;
+    expect(getArticlesPageLimit(state)).toBe(9);
+  });
+
+  it("returns correct hasMore value", () => {
+    const state = {
+      articlesPage: {
+        page: 2,
+        limit: 20,
+        hasMore: true,
+      },
+    } as StateSchema;
+    expect(getArticlesPageHasMore(state)).toBe(true);
+  });
+
+  it("returns undefined when hasMore is undefined", () => {
+    const state = {
+      articlesPage: {
+        page: 1,
+        limit: 10,
+        // hasMore is intentionally omitted
+      },
+    } as StateSchema;
+    expect(getArticlesPageHasMore(state)).toBeUndefined();
   });
 });

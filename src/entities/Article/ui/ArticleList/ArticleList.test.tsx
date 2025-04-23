@@ -22,7 +22,7 @@ describe("ArticleList", () => {
 
     expect(screen.getByTestId("article-list-skeleton")).toBeInTheDocument();
 
-    expect(skeletonList).toHaveLength(9);
+    expect(skeletonList).toHaveLength(8);
   });
 
   it("should render 3 skeletons when loading and view is big", () => {

@@ -23,6 +23,7 @@ import { AddCommentFormAsync } from "features/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Button } from "shared/ui/Button/Button";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
+import { Page } from "shared/ui/Page/Page";
 
 interface IArticleDetailsPageProps {
   className?: string;
@@ -61,7 +62,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames("article-details-page", {}, [className])}>
+      <Page className={classNames("article-details-page", {}, [className])}>
         <Button
           theme={ButtonTheme.OUTLINE}
           onClick={() => window.history.back()}
@@ -72,7 +73,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
         <Text title={t("COMMENTS")} />
         <AddCommentFormAsync onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

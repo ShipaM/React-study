@@ -2,8 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  gap: 30px;
 }
 
-.article-list-item {
-  margin: 20px;
+.big.article-list-item {
+  margin-bottom: 20px;
 }

@@ -1,5 +1,6 @@
 .article-view-selector {
   display: flex;
+  margin-bottom: 20px;
 }
 
 .not-selected {

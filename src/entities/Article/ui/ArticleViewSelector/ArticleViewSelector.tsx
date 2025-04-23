@@ -39,6 +39,7 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
       <div className={classNames("article-view-selector", {}, [className])}>
         {viewTypes.map((viewType) => (
           <Button
+            data-testid={`article-view-${viewType.view}`}
             theme={ButtonTheme.CLEAR}
             onClick={onClick(viewType.view)}
             key={viewType.view}

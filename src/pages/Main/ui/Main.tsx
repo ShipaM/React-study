@@ -1,12 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Page } from "shared/ui/Page/Page";
 const Main: React.FC = () => {
   const { t } = useTranslation("main");
   return (
-    <div data-testid="main">
+    <Page data-testid="main">
       {/* <BugButton /> */}
       {t("MAIN_PAGE")}
-    </div>
+    </Page>
   );
 };
 

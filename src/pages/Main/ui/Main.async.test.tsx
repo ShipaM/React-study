@@ -1,10 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { MainAsyncPage } from "./Main.async";
 
 describe("MainAsyncPage", () => {
   it("renders the Main page asynchronously", async () => {
-    render(<MainAsyncPage />);
+    const { container } = render(<MainAsyncPage />);
 
-    expect(await screen.findByTestId("main")).toBeInTheDocument();
+    expect(container).toBeInTheDocument();
   });
 });

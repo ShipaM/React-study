@@ -17,7 +17,7 @@ type ArticleListProps = {
 };
 
 const getSkeletons = (view: ArticleViewValue) => {
-  return new Array(view === ArticleView.SMALL ? 9 : 3)
+  return new Array(view === ArticleView.SMALL ? 8 : 3)
     .fill(0)
     .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
 };
@@ -45,6 +45,13 @@ export const ArticleList: React.FC<ArticleListProps> = memo(
         className={classNames("article-list", {}, [className, view])}
       >
         {articles?.length > 0 ? articles.map(renderArticle) : <></>}
+        {isLoading && (
+          <div
+            data-testid="article-list-skeleton"
+          >
+            {getSkeletons(view)}
+          </div>
+        )}
       </div>
     );
   }
