@@ -5,6 +5,7 @@ import {
   getArticlesPageNum,
   getArticlesPageLimit,
   getArticlesPageHasMore,
+  getArticlesPageInited,
 } from "./articlesPageSelectors";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleView } from "entities/Article/model/type/article";
@@ -114,6 +115,18 @@ describe("getArticlesPage selectors", () => {
       },
     } as StateSchema;
     expect(getArticlesPageHasMore(state)).toBe(true);
+  });
+
+  it("returns correct _inited value", () => {
+    const state = {
+      articlesPage: {
+        page: 2,
+        limit: 20,
+        hasMore: true,
+        _inited: true,
+      },
+    } as StateSchema;
+    expect(getArticlesPageInited(state)).toBe(true);
   });
 
   it("returns undefined when hasMore is undefined", () => {

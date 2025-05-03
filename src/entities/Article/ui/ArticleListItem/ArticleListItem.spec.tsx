@@ -13,12 +13,12 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("ArticleListItem", () => {
-   const navigate = jest.fn();
+  const navigate = jest.fn();
 
-   beforeEach(() => {
-     (useNavigate as jest.Mock).mockReturnValue(navigate);
-   });
- 
+  beforeEach(() => {
+    (useNavigate as jest.Mock).mockReturnValue(navigate);
+  });
+
   it("renders ArticleCardBig when view is BIG", () => {
     componentRender(
       <ArticleListItem article={articleListItem} view={ArticleView.BIG} />,

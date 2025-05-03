@@ -5,7 +5,7 @@ import {
   getArticlesPageNum,
 } from "../../selectors/articlesPageSelectors";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
-import { articlePageActions } from "../../slices/articlePageSlice";
+import { articlesPageActions } from "../../slices/articlePageSlice";
 import { ThunkConfig } from "app/providers/StoreProvider/config/StateSchema";
 
 export const fetchNextArticlesPage = createAsyncThunk<
@@ -19,7 +19,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
   const isLoading = getArticlesPageIsLoading(getState());
 
   if (hasMore && !isLoading) {
-    dispatch(articlePageActions.setPage(page + 1));
+    dispatch(articlesPageActions.setPage(page + 1));
     dispatch(
       fetchArticlesList({
         page: page + 1,
