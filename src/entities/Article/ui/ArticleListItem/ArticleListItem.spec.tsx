@@ -26,6 +26,9 @@ describe("ArticleListItem", () => {
         initialState: {
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
           articleDetails: {
             data: undefined,
             isLoading: true,
@@ -46,6 +49,9 @@ describe("ArticleListItem", () => {
         initialState: {
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
           articleDetails: {
             data: undefined,
             isLoading: true,
@@ -67,6 +73,9 @@ describe("ArticleListItem", () => {
         initialState: {
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
           articleDetails: {
             data: undefined,
             isLoading: true,

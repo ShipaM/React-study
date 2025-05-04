@@ -35,7 +35,6 @@ export const useInfiniteScroll = ({
 
     return () => {
       if (observer.current && triggerElement) {
-         
         observer.current.unobserve(triggerElement);
       }
     };

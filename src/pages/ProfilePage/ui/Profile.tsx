@@ -25,7 +25,7 @@ import { TextTheme } from "shared/ui/Text/textConstants";
 import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page";
 
 const initialReducers: ReducersList = { profile: profileReducer };
 

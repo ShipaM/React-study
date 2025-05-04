@@ -6,6 +6,9 @@ describe("getCounter", () => {
     const state: StateSchema = {
       counter: { value: 10 },
       user: { _isInited: false },
+      scrollSave: {
+        scroll: {},
+      },
     };
     expect(getCounter(state as StateSchema)).toEqual({ value: 10 });
   });

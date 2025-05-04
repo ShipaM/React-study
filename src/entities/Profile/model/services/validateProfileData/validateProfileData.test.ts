@@ -55,4 +55,12 @@ describe("validateProfileData.test", () => {
       ValidateProfileError.INCORRECT_COUNTRY,
     ]);
   });
+
+  test("incorrect all", async () => {
+    const result = validateProfileData(undefined);
+
+    expect(result).toEqual([
+      ValidateProfileError.NO_DATA,
+    ]);
+  });
 });

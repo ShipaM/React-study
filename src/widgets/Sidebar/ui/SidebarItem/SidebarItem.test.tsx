@@ -14,6 +14,9 @@ describe("SidebarItem", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 
@@ -28,6 +31,9 @@ describe("SidebarItem", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 
@@ -45,6 +51,9 @@ describe("SidebarItem", () => {
         initialState: {
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );

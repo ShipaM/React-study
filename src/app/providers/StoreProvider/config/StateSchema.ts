@@ -15,10 +15,12 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentSchema } from "pages/ArticleDeteilsPage";
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
+import { ScrollSaveSchema } from "features/ScrollSave";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
 
   //async reducers
   loginForm?: LoginSchema;
@@ -41,6 +43,7 @@ export interface ReducerManager {
   ) => {
     counter: CounterSchema;
     user: UserSchema;
+    scrollSave: ScrollSaveSchema;
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;

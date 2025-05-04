@@ -19,6 +19,9 @@ describe("ArticleDetails", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
         articleDetails: {
           data: undefined,
           isLoading: true,
@@ -34,6 +37,9 @@ describe("ArticleDetails", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
         articleDetails: {
           error: "Error fetching article",
           isLoading: false,
@@ -119,6 +125,9 @@ describe("ArticleDetails", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
         articleDetails: {
           data: mockArticle as unknown as Article,
           isLoading: false,

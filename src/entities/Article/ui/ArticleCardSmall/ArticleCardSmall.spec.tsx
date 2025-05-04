@@ -20,6 +20,9 @@ describe("ArticleCardBig", () => {
         initialState: {
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
           articleDetails: {
             data: undefined,
             isLoading: true,

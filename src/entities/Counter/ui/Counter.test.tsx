@@ -10,6 +10,9 @@ describe("Counter", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 
@@ -21,6 +24,9 @@ describe("Counter", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 
@@ -33,6 +39,9 @@ describe("Counter", () => {
       initialState: {
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 

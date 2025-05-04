@@ -23,7 +23,7 @@ import { AddCommentFormAsync } from "features/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Button } from "shared/ui/Button/Button";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page";
 
 interface IArticleDetailsPageProps {
   className?: string;

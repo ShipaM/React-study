@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React, { memo } from "react";
 import "./SidebarItem.css";
 import { AppLink } from "shared/ui/AppLink/AppLink";
@@ -36,3 +35,5 @@ export const SidebarItem: React.FC<ISidebarItemProps> = memo(
     );
   }
 );
+
+SidebarItem.displayName = "SidebarItem";

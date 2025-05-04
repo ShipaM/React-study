@@ -19,6 +19,9 @@ describe("LoginModal", () => {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -59,6 +62,9 @@ describe("LoginModal", () => {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -85,6 +91,9 @@ describe("LoginModal", () => {
           loginForm: { username: "123", password: "123", isLoading: false },
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -114,6 +123,9 @@ describe("LoginModal", () => {
         },
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
     // Assertions

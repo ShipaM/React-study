@@ -23,6 +23,9 @@ describe("LoginForm", () => {
           },
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -44,6 +47,9 @@ describe("LoginForm", () => {
           },
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -83,6 +89,9 @@ describe("LoginForm", () => {
           },
           counter: { value: 10 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -100,6 +109,9 @@ describe("LoginForm", () => {
         loginForm: { username: "", password: "", isLoading: true },
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 
@@ -117,6 +129,9 @@ describe("LoginForm", () => {
         },
         counter: { value: 10 },
         user: { _isInited: false },
+        scrollSave: {
+          scroll: {},
+        },
       },
     });
 

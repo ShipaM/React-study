@@ -12,6 +12,9 @@ describe("ArticleList", () => {
         initialState: {
           counter: { value: 0 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -32,6 +35,9 @@ describe("ArticleList", () => {
         initialState: {
           counter: { value: 0 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -54,6 +60,9 @@ describe("ArticleList", () => {
         initialState: {
           counter: { value: 0 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -76,6 +85,9 @@ describe("ArticleList", () => {
         initialState: {
           counter: { value: 0 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
@@ -98,6 +110,9 @@ describe("ArticleList", () => {
         initialState: {
           counter: { value: 0 },
           user: { _isInited: false },
+          scrollSave: {
+            scroll: {},
+          },
         },
       }
     );
