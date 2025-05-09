@@ -10,5 +10,17 @@
   "ENTER_TEXT": "Enter text of comment",
   "SEND": "Send",
   "READ_MORE": "Read more...",
-  "BACK_TO_ARTICLES": "Back to articles"
+  "BACK_TO_ARTICLES": "Back to articles",
+  "SORT_BY": "Sort by",
+  "BY": "by",
+  "ASK": "Sort by increasing",
+  "DESC": "Sort by decreasing",
+  "VIEWS": "Sort by Views",
+  "DATE": "Sort by Date",
+  "TITLE": "Sort Title",
+  "ALL": "All",
+  "IT": "IT",
+  "SCIENCE": "Science",
+  "ECONOMICS": "Economics",
+  "NO_ARTICLES": "There are no articles"
 }

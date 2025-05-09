@@ -1,13 +1,8 @@
 import React, { useCallback } from "react";
 import "./ArticlesPage.css";
 import { classNames } from "shared/lib/classNames/classNames";
+import { ArticleList } from "entities/Article";
 import {
-  ArticleList,
-  ArticleViewSelector,
-  ArticleViewValue,
-} from "entities/Article";
-import {
-  articlesPageActions,
   articlePageReducer,
   getArticles,
 } from "../../model/slices/articlePageSlice";
@@ -26,6 +21,8 @@ import {
 import { Page } from "widgets/Page/ui/Page";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import { ArticlesPageFilter } from "../ArticlesPageFilter/ArticlesPageFilter";
+import { useSearchParams } from "react-router-dom";
 
 type ArticlesPageProps = {
   className?: string;
@@ -36,6 +33,7 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
+  const [searchParams] = useSearchParams();
   const dispatch = useAppDispatch();
 
   const articles = useSelector(getArticles.selectAll);
@@ -45,15 +43,8 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
   const view = useSelector(getArticlesPageView);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
-
-  const onChangeView = useCallback(
-    (view: ArticleViewValue) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
@@ -65,7 +56,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
         onScrollEnd={onLoadNextPart}
         className={classNames("article-page", {}, [className])}
       >
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
+        <ArticlesPageFilter />
         <ArticleList view={view} articles={articles} isLoading={isLoading} />
       </Page>
     </DynamicModuleLoader>

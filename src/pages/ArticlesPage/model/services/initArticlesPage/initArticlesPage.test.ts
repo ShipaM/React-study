@@ -4,9 +4,16 @@ import { ArticlesPageSchema } from "../../types/articlesPageSchema";
 import { initArticlesPage } from "./initArticlesPage";
 
 jest.mock("../fetchArticlesList/fetchArticlesList");
+const mockedFetchArticlesList = fetchArticlesList as jest.MockedFunction<
+  typeof fetchArticlesList
+>;
 
 describe("initArticlesPage", () => {
-  test("success", async () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("calls fetchArticlesList and sets state when not inited", async () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlesPage: {
         page: 1,
@@ -19,13 +26,22 @@ describe("initArticlesPage", () => {
       } as unknown as ArticlesPageSchema,
     });
 
-    await thunk.callThunk();
+    const searchParams = new URLSearchParams({
+      order: "asc",
+      sort: "views",
+      search: "redux",
+    });
 
-    expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 });
+    await thunk.callThunk(searchParams);
+
+    expect(thunk.dispatch).toHaveBeenCalledTimes(7);
+    expect(fetchArticlesList).toHaveBeenCalled();
+    expect(thunk.dispatch).toHaveBeenCalledWith(fetchArticlesList({}));
+
+    expect(mockedFetchArticlesList).toHaveBeenCalledWith({});
   });
 
-  test("fetchAritcleList not called", async () => {
+  test("does nothing when already inited", async () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlesPage: {
         page: 2,
@@ -38,9 +54,11 @@ describe("initArticlesPage", () => {
       } as unknown as ArticlesPageSchema,
     });
 
-    await thunk.callThunk();
+    const searchParams = new URLSearchParams();
+
+    await thunk.callThunk(searchParams);
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticlesList).not.toHaveBeenCalled();
+    expect(mockedFetchArticlesList).not.toHaveBeenCalled();
   });
 });

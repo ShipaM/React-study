@@ -117,7 +117,7 @@ describe("ArticleList", () => {
       }
     );
 
-    expect(screen.getByTestId("article-list")).toBeInTheDocument();
+    expect(screen.getByTestId("no-article-list")).toBeInTheDocument();
     expect(screen.queryByTestId("article-card-small")).not.toBeInTheDocument();
   });
 });

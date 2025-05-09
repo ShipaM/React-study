@@ -33,16 +33,27 @@ export type ArticleBlock =
   | ArticleImageBlock
   | ArticleTextBlock;
 
-export enum ArticleType {
-  IT = "IT",
-  SCIENCE = "SCIENCE",
-  ECONOMICS = "ECONOMICS",
-}
+export const ArticleType = {
+  IT: "IT",
+  SCIENCE: "SCIENCE",
+  ECONOMICS: "ECONOMICS",
+  ALL: "ALL",
+} as const;
+
+export type ArticleType = ValueOf<typeof ArticleType>;
 
 export const ArticleView = {
   BIG: "big",
   SMALL: "small",
 } as const;
+
+export const ArticleSortField = {
+  VIEWS: "views",
+  CREATED: "createdAt",
+  TITLE: "title",
+} as const;
+
+export type ArticleSortField = ValueOf<typeof ArticleSortField>;
 
 export type ArticleViewValue = ValueOf<typeof ArticleView>;
 

@@ -1,0 +1,17 @@
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.articles-page-filter-search {
+  margin-top: 16px;
+}
+
+.tabs {
+  margin-top: 16px;
+}
+
+.articles-page-filter {
+  margin-bottom: 20px;
+}

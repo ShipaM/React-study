@@ -8,6 +8,9 @@ import {
 import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
+import { Text } from "shared/ui/Text/Text";
+import { TextSize } from "shared/ui/Text/textConstants";
+import { useTranslation } from "react-i18next";
 
 type ArticleListProps = {
   className?: string;
@@ -24,6 +27,7 @@ const getSkeletons = (view: ArticleViewValue) => {
 
 export const ArticleList: React.FC<ArticleListProps> = memo(
   ({ className, articles, isLoading, view = ArticleView.SMALL }) => {
+    const { t } = useTranslation("article");
     const renderArticle = (article: Article) => (
       <ArticleListItem article={article} view={view} key={article.id} />
     );
@@ -39,6 +43,17 @@ export const ArticleList: React.FC<ArticleListProps> = memo(
       );
     }
 
+    if (!isLoading && !articles.length) {
+      return (
+        <div
+          data-testid="no-article-list"
+          className={classNames("article-list", {}, [className, view])}
+        >
+          <Text size={TextSize.L} title={t("NO_ARTICLES")} />
+        </div>
+      );
+    }
+
     return (
       <div
         data-testid="article-list"
@@ -46,11 +61,7 @@ export const ArticleList: React.FC<ArticleListProps> = memo(
       >
         {articles?.length > 0 ? articles.map(renderArticle) : <></>}
         {isLoading && (
-          <div
-            data-testid="article-list-skeleton"
-          >
-            {getSkeletons(view)}
-          </div>
+          <div data-testid="article-list-skeleton">{getSkeletons(view)}</div>
         )}
       </div>
     );
