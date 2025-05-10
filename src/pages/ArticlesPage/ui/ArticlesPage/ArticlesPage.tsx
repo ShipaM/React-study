@@ -57,7 +57,12 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }) => {
         className={classNames("article-page", {}, [className])}
       >
         <ArticlesPageFilter />
-        <ArticleList view={view} articles={articles} isLoading={isLoading} />
+        <ArticleList
+          view={view}
+          articles={articles}
+          isLoading={isLoading}
+          target="_blank"
+        />
       </Page>
     </DynamicModuleLoader>
   );

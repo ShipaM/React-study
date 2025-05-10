@@ -73,10 +73,9 @@ export const Loading: Story = {
 };
 Loading.decorators = [
   StoreDecorator({
-    articleDetailsComments: {
-      isLoading: true,
-      ids: [],
-      entities: {},
+    articleDetailsPage: {
+      comments: { isLoading: true, ids: [], entities: {} },
+      recommendations: { isLoading: false, ids: [], entities: {} },
     },
   }),
 ];

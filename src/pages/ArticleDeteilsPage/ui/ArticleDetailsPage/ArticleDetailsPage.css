@@ -1,3 +1,6 @@
-div {
-  outline: none;
+.article-list-recommendations {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: nowrap;
+  overflow: auto hidden;
 }

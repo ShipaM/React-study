@@ -22,5 +22,6 @@
   "IT": "IT",
   "SCIENCE": "Наука",
   "ECONOMICS": "Економіка",
-  "NO_ARTICLES": "Статті не знайдено"
+  "NO_ARTICLES": "Статті не знайдено",
+  "RECOMMENDATIONS": "Рекомендації"
 }

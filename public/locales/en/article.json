@@ -22,5 +22,6 @@
   "IT": "IT",
   "SCIENCE": "Science",
   "ECONOMICS": "Economics",
-  "NO_ARTICLES": "There are no articles"
+  "NO_ARTICLES": "There are no articles",
+  "RECOMMENDATIONS": "Recommendations"
 }

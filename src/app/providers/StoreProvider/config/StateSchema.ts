@@ -12,7 +12,11 @@ import { LoginSchema } from "features/AuthByUserName";
 // import { NavigateFunction } from "react-router-dom";
 import { staticReducers } from "./store";
 import { ArticleDetailsSchema } from "entities/Article";
-import { ArticleDetailsCommentSchema } from "pages/ArticleDeteilsPage";
+import {
+  // ArticleDetailsCommentsSchema,
+  ArticleDetailsPageSchema,
+  // ArticleDetailsRecommendationsSchema,
+} from "pages/ArticleDeteilsPage";
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { ScrollSaveSchema } from "features/ScrollSave";
@@ -26,9 +30,11 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentSchema;
+  // articleDetailsComments?: ArticleDetailsCommentsSchema;
+  // ArticleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -47,7 +53,9 @@ export interface ReducerManager {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    // ArticleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
     articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
   };
   // reduce: (
   //   state: StateSchema,

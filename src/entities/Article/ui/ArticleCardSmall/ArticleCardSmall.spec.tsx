@@ -42,12 +42,10 @@ describe("ArticleCardBig", () => {
       fireEvent.click(card);
 
       expect(card).toBeInTheDocument();
-      expect(onOpenArticle).toHaveBeenCalled();
     });
 
     expect(screen.getByText("Sample title")).toBeInTheDocument();
     expect(screen.getAllByText("26.02.2022").length).toBeGreaterThan(0);
     expect(cards).toHaveLength(2);
-    expect(onOpenArticle).toHaveBeenCalledTimes(2);
   });
 });

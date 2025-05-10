@@ -15,8 +15,8 @@ import { addCommentFormReducer } from "features/AddCommentForm/model/slices/addC
 import { AddCommentFormSchema } from "features/AddCommentForm";
 import { articlePageReducer } from "pages/ArticlesPage/model/slices/articlePageSlice";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
-import { articleDetailsCommentsReducer } from "pages/ArticleDeteilsPage/model/slices/articleDetailsCommentsSlice";
-import { ArticleDetailsCommentSchema } from "pages/ArticleDeteilsPage";
+import { ArticleDetailsPageSchema } from "pages/ArticleDeteilsPage";
+import { articleDetailsPageReducer } from "pages/ArticleDeteilsPage/model/slices";
 
 export interface componentRenderOptions {
   route?: string;
@@ -34,8 +34,8 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     AddCommentFormSchema | undefined
   >,
   articlesPage: articlePageReducer as Reducer<ArticlesPageSchema | undefined>,
-  articleDetailsComments: articleDetailsCommentsReducer as Reducer<
-    ArticleDetailsCommentSchema | undefined
+  articleDetailsPage: articleDetailsPageReducer as Reducer<
+    ArticleDetailsPageSchema | undefined
   >,
 };
 

@@ -1,10 +1,10 @@
 import { articleDetailsCommentsReducer } from "./articleDetailsCommentsSlice";
 import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { Comment } from "entities/Comment";
-import { ArticleDetailsCommentSchema } from "../types/ArticleDetailsCommentSchema";
+import { ArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentSchema";
 
 describe("articleDetailsCommentsSlice", () => {
-  const initialState: ArticleDetailsCommentSchema = {
+  const initialState: ArticleDetailsCommentsSchema = {
     isLoading: false,
     error: undefined,
     ids: [],

@@ -1,29 +1,30 @@
 import { Article, ArticleViewValue } from "entities/Article/model/type/article";
-import React, { memo } from "react";
+import React, { HTMLAttributeAnchorTarget, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Card } from "shared/ui/Card/Card";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Text } from "shared/ui/Text/Text";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routerConfig/routeConfig";
 
 type ArticleListItemProps = {
   className?: string;
   article: Article;
   view?: ArticleViewValue;
-  onOpenArticle: () => void;
+  onOpenArticle?: () => void;
+  target?: HTMLAttributeAnchorTarget;
 };
 export const ArticleCardSmall: React.FC<ArticleListItemProps> = memo(
-  ({ className, article, view, onOpenArticle }) => {
+  ({ className, article, view, target }) => {
     return (
-      <div
+      <AppLink
+        target={target}
+        to={`${RoutePath["article-details"]}${article.id}`}
         data-testid="article-card-small"
         className={classNames("article-list-item", {}, [className, view])}
       >
-        <Card
-          className="article-list-card"
-          onClick={onOpenArticle}
-          data-testid="article-card-small"
-        >
+        <Card className="article-list-card" data-testid="article-card-small">
           <div className="image-wrapper">
             <img
               src={article.img}
@@ -45,7 +46,7 @@ export const ArticleCardSmall: React.FC<ArticleListItemProps> = memo(
           </div>
           <Text text={article.title} className="article-list-card-title" />
         </Card>
-      </div>
+      </AppLink>
     );
   }
 );

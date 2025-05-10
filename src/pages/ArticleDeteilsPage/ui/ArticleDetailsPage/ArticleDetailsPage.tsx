@@ -3,17 +3,14 @@ import "./ArticleDetailsPage.css";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
-import { ArticleDetails } from "entities/Article";
+import { ArticleDetails, ArticleList } from "entities/Article";
 import { useParams } from "react-router-dom";
 import { CommentList } from "entities/Comment";
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from "../../model/slices/articleDetailsCommentsSlice";
+import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice";
 import { useSelector } from "react-redux";
 import { getArticleCommentsIsLoaading } from "../../model/selectors/comment";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
@@ -24,13 +21,20 @@ import { addCommentForArticle } from "../../model/services/addCommentForArticle/
 import { Button } from "shared/ui/Button/Button";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 import { Page } from "widgets/Page";
+import { getArticleRecommendations } from "pages/ArticleDeteilsPage/model/slices/articleDetailsPageRecommendationsSlice";
+import { getArticleRecommendationsIsLoading } from "pages/ArticleDeteilsPage/model/selectors/recommendations";
+import { TextSize } from "shared/ui/Text/textConstants";
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecomendations/fetchArticleRecomendations";
+import { articleDetailsPageReducer } from "pages/ArticleDeteilsPage/model/slices";
 
 interface IArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  // articleDetailsComments: articleDetailsCommentsReducer,
+  // ArticleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
@@ -39,8 +43,12 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
   const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleComments.selectAll);
+  const recomendations = useSelector(getArticleRecommendations.selectAll);
   const dispatch = useAppDispatch();
   const commentsIsLoading = useSelector(getArticleCommentsIsLoaading);
+  const recommendationsIsLoading = useSelector(
+    getArticleRecommendationsIsLoading
+  );
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -51,6 +59,7 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id)
@@ -70,7 +79,17 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
           {t("BACK_TO_ARTICLES")}
         </Button>
         <ArticleDetails id={id} />
-        <Text title={t("COMMENTS")} />
+        <Text
+          title={t("RECOMMENDATIONS")}
+          size={TextSize.L}
+          className="recommendations"
+        />
+        <ArticleList
+          articles={recomendations}
+          isLoading={recommendationsIsLoading}
+          className="article-list-recommendations"
+        />
+        <Text title={t("COMMENTS")} size={TextSize.L} className="comments" />
         <AddCommentFormAsync onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </Page>

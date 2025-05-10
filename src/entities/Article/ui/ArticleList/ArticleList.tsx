@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { HTMLAttributeAnchorTarget, memo } from "react";
 import "./ArticleList.css";
 import {
   Article,
@@ -17,6 +17,7 @@ type ArticleListProps = {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleViewValue;
+  target?: HTMLAttributeAnchorTarget;
 };
 
 const getSkeletons = (view: ArticleViewValue) => {
@@ -26,10 +27,15 @@ const getSkeletons = (view: ArticleViewValue) => {
 };
 
 export const ArticleList: React.FC<ArticleListProps> = memo(
-  ({ className, articles, isLoading, view = ArticleView.SMALL }) => {
+  ({ className, articles, isLoading, view = ArticleView.SMALL, target }) => {
     const { t } = useTranslation("article");
     const renderArticle = (article: Article) => (
-      <ArticleListItem article={article} view={view} key={article.id} />
+      <ArticleListItem
+        article={article}
+        view={view}
+        key={article.id}
+        target={target}
+      />
     );
 
     if (isLoading) {

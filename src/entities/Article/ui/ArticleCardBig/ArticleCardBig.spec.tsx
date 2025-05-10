@@ -1,4 +1,4 @@
-import { screen, fireEvent } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { ArticleCardBig } from "./ArticleCardBig";
 import React from "react";
 import {
@@ -54,40 +54,5 @@ describe("ArticleCardBig", () => {
     expect(screen.getByTestId("mock-types")).toBeInTheDocument();
     expect(screen.getByTestId("mock-views")).toBeInTheDocument();
     expect(screen.getByText("READ_MORE")).toBeInTheDocument();
-  });
-
-  it("calls onOpenArticle when READ_MORE button is clicked", () => {
-    const handleOpen = jest.fn();
-
-    componentRender(
-      <ArticleCardBig
-        className="test-class"
-        article={articleListItem}
-        types={MockTypes}
-        views={MockViews}
-        view={ArticleView.BIG}
-        onOpenArticle={handleOpen}
-        textBlock={mockTextBlock}
-      />,
-      {
-        initialState: {
-          counter: { value: 10 },
-          user: { _isInited: false },
-          scrollSave: {
-            scroll: {},
-          },
-          articleDetails: {
-            data: undefined,
-            isLoading: true,
-            error: undefined,
-          },
-        },
-      }
-    );
-
-    const button = screen.getByText("READ_MORE");
-    fireEvent.click(button);
-
-    expect(handleOpen).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,4 +1,4 @@
-import React, { JSX, memo } from "react";
+import React, { HTMLAttributeAnchorTarget, JSX, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { t } from "i18next";
@@ -12,6 +12,8 @@ import {
   ArticleViewValue,
 } from "../../model/type/article";
 import { Text } from "shared/ui/Text/Text";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routerConfig/routeConfig";
 
 type ArticleCardBigProps = {
   className?: string;
@@ -19,12 +21,13 @@ type ArticleCardBigProps = {
   view?: ArticleViewValue;
   types: JSX.Element;
   views: JSX.Element;
-  onOpenArticle: () => void;
+  onOpenArticle?: () => void;
   textBlock: ArticleTextBlock;
+  target?: HTMLAttributeAnchorTarget;
 };
 
 export const ArticleCardBig: React.FC<ArticleCardBigProps> = memo(
-  ({ className, article, view, types, views, onOpenArticle, textBlock }) => {
+  ({ className, article, view, types, views, textBlock, target }) => {
     return (
       <div
         data-testid="article-card-big"
@@ -53,9 +56,13 @@ export const ArticleCardBig: React.FC<ArticleCardBigProps> = memo(
             />
           )}
           <div className="footer">
-            <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
-              {t("READ_MORE")}
-            </Button>
+            <AppLink
+              to={`${RoutePath["article-details"]}${article.id}`}
+              target={target}
+            >
+              <Button theme={ButtonTheme.OUTLINE}>{t("READ_MORE")}</Button>
+            </AppLink>
+
             {views}
           </div>
         </Card>
