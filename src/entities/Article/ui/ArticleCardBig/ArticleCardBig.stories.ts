@@ -8,11 +8,27 @@ import {
 import { articleListItem } from "shared/lib/tests/mocks/articleMock";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta: Meta<typeof ArticleCardBig> = {
   title: "entities/Article/ArticleCardBig",
   component: ArticleCardBig,
   tags: ["autodocs"],
+  decorators: [
+    StoreDecorator({
+      loginForm: {
+        username: "",
+        password: "",
+        isLoading: false,
+      },
+      counter: { value: 0 },
+      user: {},
+      profile: {
+        isLoading: false,
+        readOnly: false,
+      },
+    }),
+  ],
   parameters: {
     layout: "centered", // Center the component in the Storybook layout
   },

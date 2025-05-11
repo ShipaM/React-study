@@ -57,7 +57,7 @@ export const ArticleCardBig: React.FC<ArticleCardBigProps> = memo(
           )}
           <div className="footer">
             <AppLink
-              to={`${RoutePath["article-details"]}${article.id}`}
+              to={`${RoutePath.article_details}${article.id}`}
               target={target}
             >
               <Button theme={ButtonTheme.OUTLINE}>{t("READ_MORE")}</Button>

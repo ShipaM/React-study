@@ -18,14 +18,13 @@ import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByAr
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AddCommentFormAsync } from "features/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
-import { Button } from "shared/ui/Button/Button";
-import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 import { Page } from "widgets/Page";
 import { getArticleRecommendations } from "pages/ArticleDeteilsPage/model/slices/articleDetailsPageRecommendationsSlice";
 import { getArticleRecommendationsIsLoading } from "pages/ArticleDeteilsPage/model/selectors/recommendations";
 import { TextSize } from "shared/ui/Text/textConstants";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecomendations/fetchArticleRecomendations";
 import { articleDetailsPageReducer } from "pages/ArticleDeteilsPage/model/slices";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 interface IArticleDetailsPageProps {
   className?: string;
@@ -72,12 +71,13 @@ const ArticleDetailsPage: React.FC<IArticleDetailsPageProps> = ({
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames("article-details-page", {}, [className])}>
-        <Button
+        <ArticleDetailsPageHeader />
+        {/* <Button
           theme={ButtonTheme.OUTLINE}
           onClick={() => window.history.back()}
         >
           {t("BACK_TO_ARTICLES")}
-        </Button>
+        </Button> */}
         <ArticleDetails id={id} />
         <Text
           title={t("RECOMMENDATIONS")}

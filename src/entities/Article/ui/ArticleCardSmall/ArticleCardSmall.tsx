@@ -20,7 +20,7 @@ export const ArticleCardSmall: React.FC<ArticleListItemProps> = memo(
     return (
       <AppLink
         target={target}
-        to={`${RoutePath["article-details"]}${article.id}`}
+        to={`${RoutePath.article_details}${article.id}`}
         data-testid="article-card-small"
         className={classNames("article-list-item", {}, [className, view])}
       >

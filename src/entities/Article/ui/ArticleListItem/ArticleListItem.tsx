@@ -24,7 +24,7 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = memo(
   ({ article, view, target }) => {
     // const navigate = useNavigate();
     // const onOpenArticle = useCallback(() => {
-    //   navigate(RoutePath["article-details"] + article.id);
+    //   navigate(RoutePath.article_details] + article.id);
     // }, [article.id, navigate]);
 
     const types = (

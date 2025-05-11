@@ -23,5 +23,9 @@
   "SCIENCE": "Наука",
   "ECONOMICS": "Економіка",
   "NO_ARTICLES": "Статті не знайдено",
-  "RECOMMENDATIONS": "Рекомендації"
+  "RECOMMENDATIONS": "Рекомендації",
+  "EDIT": "Редагувати",
+  "BACK_TO_LIST": "Повернутися до списку",
+  "EDIT_ARTICLE_BY_ID": "Редагувати статтю",
+  "CREATE_NEW_ARTICLE": "Створити нову статтю"
 }

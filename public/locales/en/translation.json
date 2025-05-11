@@ -16,5 +16,7 @@
   "LOGOUT": "Logout",
   "ENTER_USERNAME": "Enter your username",
   "ENTER_USERPASSWORD": "Enter your пароль",
-  "ERROR_MESSAGE": "You have entered an incorrect username or password!!!"
+  "ERROR_MESSAGE": "You have entered an incorrect username or password!!!",
+  "APP_NAME": "Study React app",
+  "CREATE_ARTICLE": "Create article"
 }

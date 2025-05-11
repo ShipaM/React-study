@@ -7,13 +7,17 @@ import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 import { LoginModal } from "features/AuthByUserName";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import { Text } from "shared/ui/Text/Text";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routerConfig/routeConfig";
+import { TextTheme } from "shared/ui/Text/textConstants";
 
 interface NavbarProps {
   className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation");
   const [isAuthModal, setIsAuthModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -35,6 +39,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames("navbar", {}, [className])}>
+        <Text
+          className="app-name"
+          title={t("APP_NAME")}
+          theme={TextTheme.INVERTED}
+        />
+        <AppLink to={RoutePath.article_create} className="create-article-btn">
+          {t("CREATE_ARTICLE")}
+        </AppLink>
         <Button
           theme={ButtonTheme.CLEAR_INVERTED}
           className="links"

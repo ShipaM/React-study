@@ -16,5 +16,7 @@
   "LOGOUT": "Bийти",
   "ENTER_USERNAME": "Введіть username",
   "ENTER_USERPASSWORD": "Введіть пароль",
-  "ERROR_MESSAGE": "Ви ввели неправильний логін або пароль!!!"
+  "ERROR_MESSAGE": "Ви ввели неправильний логін або пароль!!!",
+  "APP_NAME": "Study React app",
+  "CREATE_ARTICLE": "Створити статтю"
 }

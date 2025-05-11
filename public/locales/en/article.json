@@ -23,5 +23,9 @@
   "SCIENCE": "Science",
   "ECONOMICS": "Economics",
   "NO_ARTICLES": "There are no articles",
-  "RECOMMENDATIONS": "Recommendations"
+  "RECOMMENDATIONS": "Recommendations",
+  "EDIT": "Edit",
+  "BACK_TO_LIST": "Back to list",
+  "EDIT_ARTICLE_BY_ID": "Edit article by id",
+  "CREATE_NEW_ARTICLE": "Create new article"
 }

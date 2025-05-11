@@ -11,3 +11,4 @@ export {
   ArticleType,
 } from "./model/type/article";
 export type { ArticleDetailsSchema } from "./model/type/articleDetailsSchema";
+export { getArticleDetailsData } from "./model/selectors/articleDetails";
