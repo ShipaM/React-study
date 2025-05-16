@@ -659,110 +659,8 @@
     {
       "articleId": "1",
       "userId": "1",
-      "text": "123",
-      "id": "4Cljjzl"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "123asfasf",
-      "id": "AEM4Dvc"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "123asfasf",
-      "id": "IFEOWl0"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "привет мир",
-      "id": "dBacYRZ"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "хехехехе",
-      "id": "rBX_C-e"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "фыафыа",
-      "id": "5k0ApX-"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "sdfsdfsd",
-      "id": "w-HDIRq"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "asdasdasd",
-      "id": "MVvGQoZ"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "new",
-      "id": "PbT-xWk"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "Hello World",
-      "id": "txJ_gEl"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "New comment",
-      "id": "3QDlVJW"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "new",
-      "id": "GO9K_Lr"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "Welcome!!!",
-      "id": "xUCBXm6"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "New comment",
-      "id": "d_4b3wM"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "new comment",
-      "id": "ZugQX1s"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "hggg",
-      "id": "FmIVRzF"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "kk",
-      "id": "gpBVF3u"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "new comment",
-      "id": "1s946vb"
+      "text": "First comment for kotlin",
+      "id": "qwO4MZQ"
     }
   ],
   "users": [
@@ -771,7 +669,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      "avatar": "https://img.freepik.com/free-vector/hacker-operating-laptop-cartoon-icon-illustration-technology-icon-concept-isolated-flat-cartoon-style_138676-2387.jpg?semt=ais_hybrid&w=740"
     },
     {
       "id": "2",
