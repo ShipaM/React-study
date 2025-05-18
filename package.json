@@ -7,7 +7,7 @@
     "start:dev:server": "node ./json-server/index.js -p 5000",
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start": "webpack serve --env port=7000",
-    "build:prod": "webpack --env mode=production apiUrl=https://production-json-server-sage.vercel.app",
+    "build:prod": "webpack --env mode=production apiUrl=https://production-json-server-gold.vercel.app",
     "build:dev": "webpack --env mode=development",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
