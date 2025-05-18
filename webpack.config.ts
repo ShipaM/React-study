@@ -16,7 +16,7 @@ export default (env: BuildEnv) => {
   const mode = env.mode || "development";
   const isDev = mode === "development";
   const PORT = env.port || 7000;
-  const apiUrl = "https://production-json-server-gold.vercel.app";
+  const apiUrl = env.apiUrl || "http://localhost:5000";
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
