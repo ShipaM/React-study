@@ -7,6 +7,7 @@ import "./CommentCard.css";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routerConfig/routeConfig";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface CommentCardProps {
   className?: string;
@@ -18,40 +19,50 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
   ({ className, comment, isLoading }) => {
     if (isLoading) {
       return (
-        <div className={classNames("comment-card", {}, [className, "loading"])}>
-          <div className="comment-card-header">
+        <VStack
+          gap="8"
+          align="start"
+          max
+          className={classNames("comment-card", {}, [className, "loading"])}
+        >
+          <VStack max align="start">
             <Skeleton
               width={30}
               height={30}
               border="50%"
               className="comment-card-avatar"
             />
-            <Skeleton height={16} width={100} />
-          </div>
-          <Skeleton width={"100%"} height={50} />
-        </div>
+            <Skeleton height={16} width={"100%"} />
+          </VStack>
+        </VStack>
       );
     }
 
     if (!comment) return null;
 
     return (
-      <div className={classNames("comment-card", {}, [className])}>
+      <VStack
+        align="start"
+        max
+        className={classNames("comment-card", {}, [className])}
+      >
         <AppLink
           className="comment-card-header"
           to={`${RoutePath.profile}${comment.user.id}`}
         >
-          {comment.user.avatar ? (
-            <Avatar
-              size={30}
-              className="comment-card-avatar"
-              src={comment.user.avatar}
-            />
-          ) : null}
-          <Text title={comment.user.username} className="comment-card-text" />
+          <HStack align="center" gap="8">
+            {comment.user.avatar ? (
+              <Avatar
+                size={30}
+                className="comment-card-avatar"
+                src={comment.user.avatar}
+              />
+            ) : null}
+            <Text title={comment.user.username} className="comment-card-text" />
+          </HStack>
         </AppLink>
         <Text text={comment.text} />
-      </div>
+      </VStack>
     );
   }
 );

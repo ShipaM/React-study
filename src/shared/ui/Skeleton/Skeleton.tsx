@@ -7,6 +7,7 @@ interface ISkeletonProps {
   height?: string | number;
   width?: string | number;
   border?: string;
+  "data-testid"?: string;
 }
 
 export const Skeleton: React.FC<ISkeletonProps> = ({
@@ -14,6 +15,7 @@ export const Skeleton: React.FC<ISkeletonProps> = ({
   height,
   width,
   border,
+  "data-testid": dataTestId,
 }) => {
   const styles: CSSProperties = {
     width,
@@ -24,7 +26,7 @@ export const Skeleton: React.FC<ISkeletonProps> = ({
     <div
       style={styles}
       className={classNames("skeleton", {}, [className])}
-      data-testid="skeleton"
+      data-testid={dataTestId}
     />
   );
 };

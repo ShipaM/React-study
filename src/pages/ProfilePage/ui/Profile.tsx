@@ -26,6 +26,7 @@ import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { Page } from "widgets/Page";
+import { VStack } from "shared/ui/Stack";
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
@@ -110,29 +111,31 @@ const Profile: React.FC = () => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <Page data-testid="profile" className={classNames("profile", {}, [])}>
-        <ProfileHeader />
-        {validateErrors?.length &&
-          validateErrors?.map((err) => (
-            <Text
-              theme={TextTheme.ERROR}
-              text={validateErrorsTranslates[err]}
-              key={err}
-            />
-          ))}
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeAvatar={onChangeAvatar}
-          onChangeUsername={onChangeUsername}
-          onChangeCountry={onChangeCountry}
-          onChangeCurrency={onChangeCurrency}
-          onChangeFirstname={onChangeFirstname}
-          readOnly={readOnly}
-        />
+        <VStack gap="16" max>
+          <ProfileHeader />
+          {validateErrors?.length &&
+            validateErrors?.map((err) => (
+              <Text
+                theme={TextTheme.ERROR}
+                text={validateErrorsTranslates[err]}
+                key={err}
+              />
+            ))}
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeAvatar={onChangeAvatar}
+            onChangeUsername={onChangeUsername}
+            onChangeCountry={onChangeCountry}
+            onChangeCurrency={onChangeCurrency}
+            onChangeFirstname={onChangeFirstname}
+            readOnly={readOnly}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

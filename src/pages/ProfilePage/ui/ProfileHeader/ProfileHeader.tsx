@@ -1,8 +1,7 @@
-import React, { useCallback } from "react";
+import React, { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ButtonTheme } from "shared/ui/Button/buttonConstants";
 import { Text } from "shared/ui/Text/Text";
-import "./ProfileHeader.css";
 import { useTranslation } from "react-i18next";
 import { getProfileReadonly } from "entities/Profile/model/selectors/grtProfileReadonly/getProfileReadonly";
 import { useSelector } from "react-redux";
@@ -12,8 +11,9 @@ import { Button } from "shared/ui/Button/Button";
 import { updateProfileData } from "entities/Profile/model/services/updateProfileData/updateProfileData";
 import { getUserAuthData } from "entities/User";
 import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
+import { HStack } from "shared/ui/Stack";
 
-export const ProfileHeader = () => {
+export const ProfileHeader = memo(() => {
   const { t } = useTranslation("profile");
   const readOnly = useSelector(getProfileReadonly);
   const dispatch = useAppDispatch();
@@ -34,14 +34,19 @@ export const ProfileHeader = () => {
   }, [dispatch]);
 
   return (
-    <div className={classNames("profile-header", {}, [])}>
+    <HStack
+      align="center"
+      justify="between"
+      max
+      className={classNames("profile-header", {}, [])}
+    >
       <Text
         title={t("PROFILE")}
         className={classNames("profile-text", {}, [])}
       />
 
       {isEditButtonVisible && (
-        <div className="btn-wrapper">
+        <>
           {readOnly ? (
             <Button
               theme={ButtonTheme.OUTLINE}
@@ -51,7 +56,7 @@ export const ProfileHeader = () => {
               {t("EDIT")}
             </Button>
           ) : (
-            <div className={classNames("profile-buttons", {}, [])}>
+            <HStack gap="16">
               <Button
                 theme={ButtonTheme.OUTLINE_RED}
                 className="edit-btn"
@@ -66,10 +71,12 @@ export const ProfileHeader = () => {
               >
                 {t("SAVE")}
               </Button>
-            </div>
+            </HStack>
           )}
-        </div>
+        </>
       )}
-    </div>
+    </HStack>
   );
-};
+});
+
+ProfileHeader.displayName = "ProfileHeader";

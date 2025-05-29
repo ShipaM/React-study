@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { StateSchema } from "app/providers/StoreProvider";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
+import { PAGE_ID } from "./page.const";
 
 type PageProps = {
   className?: string;
@@ -16,6 +17,7 @@ type PageProps = {
   onScrollEnd?: () => void;
   "data-testid"?: string;
 };
+
 export const Page: React.FC<PageProps> = memo(
   ({ className, children, onScrollEnd, "data-testid": dataTestId }) => {
     const dispatch = useAppDispatch();
@@ -57,6 +59,7 @@ export const Page: React.FC<PageProps> = memo(
         data-testid={dataTestId}
         className={classNames("page", {}, [className])}
         onScroll={onScroll}
+        id={PAGE_ID}
       >
         {children}
         {onScrollEnd ? <div className="trigger" ref={triggerRef} /> : null}
