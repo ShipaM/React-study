@@ -3,16 +3,24 @@ import "./Text.css";
 import { AlignItems, TextSize, TextTheme } from "./textConstants";
 import React, { memo } from "react";
 
-interface ITextProps {
+type TextProps = {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
   alignItems?: AlignItems;
   size?: TextSize;
-}
+};
 
-export const Text: React.FC<ITextProps> = memo(
+type HeaderTagType = "h1" | "h2" | "h3";
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: "h3",
+  [TextSize.M]: "h2",
+  [TextSize.L]: "h1",
+};
+
+export const Text: React.FC<TextProps> = memo(
   ({
     className,
     title,
@@ -21,6 +29,8 @@ export const Text: React.FC<ITextProps> = memo(
     alignItems = AlignItems.LEFT,
     size = TextSize.M,
   }) => {
+    const HeaderTag = mapSizeToHeaderTag[size];
+
     return (
       <div
         className={classNames("text-block", {}, [
@@ -30,7 +40,7 @@ export const Text: React.FC<ITextProps> = memo(
           size,
         ])}
       >
-        {title && <p className={"title"}>{title}</p>}
+        {title && <HeaderTag className={"title"}>{title}</HeaderTag>}
         {text && <p className={"text"}>{text}</p>}
       </div>
     );

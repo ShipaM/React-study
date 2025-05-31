@@ -74,6 +74,53 @@ export const TextAlignCenterDark: Story = {
     alignItems: AlignItems.CENTER,
   },
 };
+TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// Text size S
+export const TextSizeS: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.S,
+  },
+};
+
+// Text size S Dark
+export const TextSizeSDark: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.S,
+  },
+};
+TextSizeSDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+// Text size M
+export const TextSizeM: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.M,
+  },
+};
+
+// Text size M Dark
+export const TextSizeMDark: Story = {
+  args: {
+    title: "Text align Center",
+    text: "Text align Center",
+    theme: TextTheme.PRIMARY,
+    alignItems: AlignItems.CENTER,
+    size: TextSize.M,
+  },
+};
+TextSizeMDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 // Text size L
 export const TextSizeL: Story = {
@@ -96,29 +143,8 @@ export const TextSizeLDark: Story = {
     size: TextSize.L,
   },
 };
-TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
-// Text size L
-export const TextSizeM: Story = {
-  args: {
-    title: "Text align Center",
-    text: "Text align Center",
-    theme: TextTheme.PRIMARY,
-    alignItems: AlignItems.CENTER,
-    size: TextSize.M,
-  },
-};
+TextSizeLDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-// Text size L Dark
-export const TextSizeMDark: Story = {
-  args: {
-    title: "Text align Center",
-    text: "Text align Center",
-    theme: TextTheme.PRIMARY,
-    alignItems: AlignItems.CENTER,
-    size: TextSize.M,
-  },
-};
-TextAlignCenterDark.decorators = [ThemeDecorator(Theme.DARK)];
 // Text align Right
 export const TextAlignRight: Story = {
   args: {

@@ -5,6 +5,7 @@ export enum TextTheme {
 }
 
 export enum TextSize {
+  S = "size-s",
   M = "size-m",
   L = "size-l",
 }

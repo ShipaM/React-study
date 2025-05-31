@@ -54,7 +54,7 @@ export const Page: React.FC<PageProps> = memo(
     });
 
     return (
-      <section
+      <main
         ref={wrapperRef}
         data-testid={dataTestId}
         className={classNames("page", {}, [className])}
@@ -63,7 +63,7 @@ export const Page: React.FC<PageProps> = memo(
       >
         {children}
         {onScrollEnd ? <div className="trigger" ref={triggerRef} /> : null}
-      </section>
+      </main>
     );
   }
 );

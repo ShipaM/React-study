@@ -1,5 +1,5 @@
 import { classNames, Mods } from "shared/lib/classNames/classNames";
-import React from "react";
+import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import { ReactNode } from "react";
 import "./Flex.css";
 import {
@@ -13,6 +13,11 @@ import {
   gapClasses,
 } from "./constants";
 
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
 export type FlexProps = {
   className?: string;
   children: ReactNode;
@@ -22,7 +27,7 @@ export type FlexProps = {
   gap?: FlexGap;
   max?: boolean;
   "data-testid"?: string;
-};
+} & DivProps;
 
 export const Flex = ({
   className,
@@ -46,5 +51,9 @@ export const Flex = ({
     ["max"]: max,
   };
 
-  return <div data-testid={dataTestId} className={classNames("flex", mods, classes)}>{children}</div>;
+  return (
+    <div data-testid={dataTestId} className={classNames("flex", mods, classes)}>
+      {children}
+    </div>
+  );
 };

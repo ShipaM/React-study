@@ -10,11 +10,11 @@ import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { useSelector } from "react-redux";
 import { VStack } from "shared/ui/Stack";
 
-interface ISidebarProps {
+type SidebarProps = {
   className?: string;
-}
+};
 
-export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
+export const Sidebar: React.FC<SidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const sidebarItemsList = useSelector(getSidebarItems);
@@ -29,7 +29,7 @@ export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
   }, [collapsed, sidebarItemsList]);
 
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={classNames("sidebar", { ["collapsed"]: collapsed }, [
         className ?? "",
@@ -49,6 +49,7 @@ export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
         gap="8"
         align="start"
         className={classNames("items", {}, [className])}
+        role="navigation"
       >
         {itemsList}
       </VStack>
@@ -56,7 +57,7 @@ export const Sidebar: React.FC<ISidebarProps> = memo(({ className }) => {
         <ThemeSwitcher />
         <LangSwitcher short={collapsed} className="lang" />
       </div>
-    </menu>
+    </aside>
   );
 });
 

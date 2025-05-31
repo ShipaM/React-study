@@ -56,3 +56,11 @@
 .size-l .text {
   font: var(--font-l);
 }
+
+.size-s .title {
+  font: var(--font-m);
+}
+
+.size-s .text {
+  font: var(--font-s);
+}
